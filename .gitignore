@@ -4,8 +4,6 @@
 # Ignore everything:
 *
 
-
-
 # Except for the plugin and themes directories I'm templating:
 !wp/
 !wp/wp-content/
