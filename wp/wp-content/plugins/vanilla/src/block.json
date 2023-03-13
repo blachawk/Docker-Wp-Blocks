@@ -4,7 +4,7 @@
 	"name": "create-block/vanilla",
 	"version": "0.1.0",
 	"title": "Vanilla",
-	"category": "widgets",
+	"category": "text",
 	"icon": "smiley",
 	"description": "Example static block scaffolded with Create Block tool.",
 	"supports": {
