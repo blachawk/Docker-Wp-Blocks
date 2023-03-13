@@ -1,2 +1,3 @@
 # Blocks Training Course
- > A sandbox evnironment for creating and testing out Blocks
+
+> A sandbox environment for creating and testing out Gutenberg Blocks.
