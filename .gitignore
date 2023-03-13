@@ -4,6 +4,8 @@
 # Ignore everything:
 *
 
+
+
 # Except for the plugin and themes directories I'm templating:
 !wp/
 !wp/wp-content/
@@ -18,3 +20,7 @@
 !wp/wp-content/themes/block-theme/*
 !wp/wp-content/themes/block-theme/*/*
 !wp/wp-content/themes/block-theme/*/*/*
+
+wp/wp-content/plugins/boilerplate/build
+wp/wp-content/plugins/boilerplate/build/*
+wp/wp-content/plugins/boilerplate/build/*/*
