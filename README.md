@@ -1,2 +1,2 @@
-# Docker-Wp-Blocks
- A sandbox evnironment for testing WP Blocks
+# Blocks Training Course
+ > A sandbox evnironment for creating and testing out Blocks
