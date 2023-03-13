@@ -4,14 +4,13 @@
 # Ignore everything:
 *
 
-# Except for the themes directories:
-
+# Except for the plugin and themes directories I'm templating:
 !wp/
-!wp/*/
-!wp/*/wp-content/
+!wp/wp-content/
+!wp/wp-content/plugins/
+!wp/wp-content/plugins/boilerplate/
+!wp/wp-content/plugins/boilerplate/*
 
-!wp/*/wp-content/plugins/
-!wp/*/wp-content/plugins/boilerplate/*
-
-!wp/*/wp-content/themes/
-!wp/*/wp-content/themes/block-theme/*
+!wp/wp-content/themes/
+!wp/wp-content/themes/block-theme/
+!wp/wp-content/themes/block-theme/*
