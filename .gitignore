@@ -8,10 +8,6 @@
 !wp/
 !wp/wp-content/
 !wp/wp-content/plugins/
-!wp/wp-content/plugins/boilerplate/
-!wp/wp-content/plugins/boilerplate/*
-!wp/wp-content/plugins/boilerplate/*/*
-!wp/wp-content/plugins/boilerplate/*/*/*
 
 !wp/wp-content/plugins/text-box/
 !wp/wp-content/plugins/text-box/*
@@ -28,10 +24,6 @@
 !wp/wp-content/themes/block-theme/*
 !wp/wp-content/themes/block-theme/*/*
 !wp/wp-content/themes/block-theme/*/*/*
-
-wp/wp-content/plugins/boilerplate/build
-wp/wp-content/plugins/boilerplate/build/*
-wp/wp-content/plugins/boilerplate/build/*/*
 
 wp/wp-content/plugins/vanilla/build
 wp/wp-content/plugins/vanilla/build/*
