@@ -15,6 +15,13 @@
 !wp/wp-content/plugins/boilerplate/*/*
 !wp/wp-content/plugins/boilerplate/*/*/*
 
+
+!wp/wp-content/plugins/text-box/
+!wp/wp-content/plugins/text-box/*
+!wp/wp-content/plugins/text-box/*/*
+!wp/wp-content/plugins/text-box/*/*/*
+
+
 !wp/wp-content/themes/
 !wp/wp-content/themes/block-theme/
 !wp/wp-content/themes/block-theme/*
