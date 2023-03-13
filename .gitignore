@@ -10,7 +10,11 @@
 !wp/wp-content/plugins/
 !wp/wp-content/plugins/boilerplate/
 !wp/wp-content/plugins/boilerplate/*
+!wp/wp-content/plugins/boilerplate/*/*
+!wp/wp-content/plugins/boilerplate/*/*/*
 
 !wp/wp-content/themes/
 !wp/wp-content/themes/block-theme/
 !wp/wp-content/themes/block-theme/*
+!wp/wp-content/themes/block-theme/*/*
+!wp/wp-content/themes/block-theme/*/*/*
