@@ -32,3 +32,7 @@
 wp/wp-content/plugins/boilerplate/build
 wp/wp-content/plugins/boilerplate/build/*
 wp/wp-content/plugins/boilerplate/build/*/*
+
+wp/wp-content/plugins/vanilla/build
+wp/wp-content/plugins/vanilla/build/*
+wp/wp-content/plugins/vanilla/build/*/*
