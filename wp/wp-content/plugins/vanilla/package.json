@@ -14,7 +14,9 @@
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start"
 	},
+	"prettier": "@wordpress/prettier-config",
 	"devDependencies": {
+		"@wordpress/prettier-config": "^2.11.0",
 		"@wordpress/scripts": "^25.5.1"
 	}
 }

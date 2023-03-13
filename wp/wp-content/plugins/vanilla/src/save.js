@@ -1,7 +1,9 @@
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps } from '@wordpress/block-editor';
 
 export default function save() {
 	return (
-		<p {...useBlockProps.save()}>{"Vanilla – hello from the saved content!"}</p>
+		<p { ...useBlockProps.save() }>
+			{ 'Vanilla – hello from the saved content!' }
+		</p>
 	);
 }
