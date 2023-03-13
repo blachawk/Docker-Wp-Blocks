@@ -185,6 +185,9 @@
   }
  },
  "styles": {
+  "color": {
+   "background": "pink"
+  },
   "spacing": {
    "margin": {
     "top": "0px",
