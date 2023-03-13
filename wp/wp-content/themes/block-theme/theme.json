@@ -1,0 +1,230 @@
+{
+ "version": 2,
+ "settings": {
+  "layout": {
+   "contentSize": "",
+   "wideSize": "600px"
+  },
+  "spacing": {
+   "margin": true,
+   "padding": true
+  },
+  "color": {
+   "custom": false,
+   "customDuotone": false,
+   "customGradient": false,
+   "defaultGradients": false,
+   "defaultPalette": false,
+   "duotone": [],
+   "gradients": [
+    {
+     "slug": "green-to-yellow",
+     "gradient": "linear-gradient(135deg, #3ce406 0%, #d6e029 100%)",
+     "name": "Green to Yellow"
+    },
+    {
+     "slug": "red-to-blue",
+     "gradient": "linear-gradient(135deg, #e4064d 0%, #2c59ee 100%)",
+     "name": "Red to Blue"
+    }
+   ],
+   "palette": [
+    {
+     "name": "Black",
+     "slug": "black",
+     "color": "#000000"
+    },
+    {
+     "name": "Black-n75",
+     "slug": "blackn75",
+     "color": "#4d4d4d"
+    },
+    {
+     "name": "White",
+     "slug": "white",
+     "color": "#ffffff"
+    },
+    {
+     "name": "Red",
+     "slug": "red",
+     "color": "#dd3c27"
+    },
+    {
+     "name": "Rising Sun",
+     "slug": "risingsun",
+     "color": "#df591d"
+    },
+    {
+     "name": "Bronze",
+     "slug": "bronze",
+     "color": "#b29069"
+    },
+    {
+     "name": "Corn",
+     "slug": "corn",
+     "color": "#ecb04a"
+    },
+    {
+     "name": "Wheat",
+     "slug": "wheat",
+     "color": "#f1dcaa"
+    },
+    {
+     "name": "Yellow",
+     "slug": "yellow",
+     "color": "#f2ce1b"
+    },
+    {
+     "name": "Sand",
+     "slug": "sand",
+     "color": "#d7d4c2"
+    },
+    {
+     "name": "Greenhand",
+     "slug": "greenhand",
+     "color": "#5e683c"
+    },
+    {
+     "name": "Sprout",
+     "slug": "sprout",
+     "color": "#b3baa0"
+    },
+    {
+     "name": "Green",
+     "slug": "green",
+     "color": "#389241"
+    },
+    {
+     "name": "Sea",
+     "slug": "sea",
+     "color": "#69aa95"
+    },
+    {
+     "name": "Steel",
+     "slug": "steel",
+     "color": "#1a839a"
+    },
+    {
+     "name": "Blue Sky",
+     "slug": "bluesky",
+     "color": "#3ea9da"
+    },
+    {
+     "name": "blue",
+     "slug": "blue",
+     "color": "#004c97"
+    },
+    {
+     "name": "corduroy",
+     "slug": "corduroy",
+     "color": "#1627a"
+    }
+   ]
+  },
+  "typography": {
+   "fontFamilies": [
+    {
+     "fontFamily": "Montserrat, sans-serif",
+     "slug": "montserrat",
+     "name": "Montserrat or San-Serif",
+     "google": "family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    }
+   ],
+   "fontSizes": [
+    {
+     "slug": "small",
+     "size": "1rem",
+     "name": "Small"
+    },
+    {
+     "slug": "medium",
+     "size": "1.6rem",
+     "name": "Medium"
+    },
+    {
+     "slug": "large",
+     "size": "2rem",
+     "name": "Large"
+    },
+    {
+     "slug": "huge",
+     "size": "3rem",
+     "name": "Huge"
+    },
+    {
+     "slug": "gigantor",
+     "size": "4rem",
+     "name": "Gigantor"
+    }
+   ],
+   "dropCap": true
+  },
+  "blocks": {
+   "core/heading": {
+    "typography": {
+     "customFontSize": false,
+     "fontSizes": [
+      {
+       "slug": "small",
+       "size": "1.7rem",
+       "name": "small"
+      },
+      {
+       "slug": "medium",
+       "size": "2.27rem",
+       "name": "medium"
+      },
+      {
+       "slug": "large",
+       "size": "3.1rem",
+       "name": "large"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "styles": {
+  "spacing": {
+   "margin": {
+    "top": "0px",
+    "right": "0px",
+    "bottom": "60px",
+    "left": "0px"
+   },
+   "padding": {
+    "top": "100px",
+    "right": "0px",
+    "bottom": "0px",
+    "left": "0px"
+   }
+  },
+  "blocks": {
+   "core/button": {
+    "spacing": {
+     "padding": {
+      "top": "0.3rem",
+      "right": "1rem",
+      "bottom": "0.3rem",
+      "left": "1rem"
+     }
+    }
+   },
+   "core/social-links": {
+    "spacing": {
+     "margin": {
+      "top": "0px",
+      "bottom": "0px"
+     }
+    }
+   },
+   "core/latest-comments": {
+    "spacing": {
+     "padding": {
+      "left": "0px"
+     }
+    }
+   }
+  }
+ }
+}
