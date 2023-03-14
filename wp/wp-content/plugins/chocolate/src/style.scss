@@ -7,7 +7,16 @@
 
 .wp-block-course-blocks-chocolate {
     background-color: #8b4513;
-    border: solid 1px rgb(1, 1, 1);
     color: #fff;
     padding: 2px;
+
+    &.text-box-align-right {
+        text-align:right;
+    }
+    &.text-box-align-center {
+        text-align:center;
+    }
+    &.text-box-align-left {
+        text-align:left;
+    }
 }
