@@ -3,6 +3,7 @@ import {
 	useBlockProps,
 	RichText,
 	BlockControls,
+	AlignmentToolbar,
 } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
@@ -12,11 +13,24 @@ import {
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { text } = attributes;
+	const { text, alignment } = attributes;
+	const onChangeAlignment = ( newAlignment ) => {
+		setAttributes( { alignment: newAlignment } );
+	};
+	const onChangeText = ( newText ) => {
+		setAttributes( { text: newText } );
+	};
 
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<>
+			<BlockControls>
+				<AlignmentToolbar
+					value={ alignment }
+					onChange={ onChangeAlignment }
+				/>
+			</BlockControls>
+
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton
@@ -63,11 +77,14 @@ export default function Edit( { attributes, setAttributes } ) {
 			</BlockControls>
 
 			<RichText
-				{ ...useBlockProps() }
-				onChange={ ( value ) => setAttributes( { text: value } ) }
+				{ ...useBlockProps( {
+					className: `text-box-align-${ alignment }`,
+				} ) }
+				onChange={ onChangeText }
 				value={ text }
 				placeholder={ __( 'My chocolate placeholder', 'chocolate' ) }
 				tagName="h4"
+				style={ { textAlign: alignment } }
 				// allowedFormats={ 'core/bold' }
 			/>
 		</>
