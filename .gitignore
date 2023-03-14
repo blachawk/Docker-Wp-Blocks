@@ -19,6 +19,11 @@
 !wp/wp-content/plugins/vanilla/*/*
 !wp/wp-content/plugins/vanilla/*/*/*
 
+!wp/wp-content/plugins/chocolate/
+!wp/wp-content/plugins/chocolate/*
+!wp/wp-content/plugins/chocolate/*/*
+!wp/wp-content/plugins/chocolate/*/*/*
+
 !wp/wp-content/themes/
 !wp/wp-content/themes/block-theme/
 !wp/wp-content/themes/block-theme/*
