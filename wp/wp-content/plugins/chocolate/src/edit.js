@@ -4,7 +4,11 @@ import {
 	RichText,
 	BlockControls,
 } from '@wordpress/block-editor';
-import { ToolbarGroup, ToolbarButton } from '@wordpress/components';
+import {
+	ToolbarGroup,
+	ToolbarButton,
+	ToolbarDropdownMenu,
+} from '@wordpress/components';
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
@@ -13,37 +17,59 @@ export default function Edit( { attributes, setAttributes } ) {
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<>
-			<BlockControls group="inline">
-				<p>Inline Controls</p>
+			<BlockControls>
+				<ToolbarGroup>
+					<ToolbarButton
+						title="Button 1"
+						icon="admin-generic"
+						isActive="true"
+						onClick={ () => console.log( 'Button 1' ) }
+					/>
+				</ToolbarGroup>
+				<ToolbarGroup>
+					<ToolbarButton
+						title="Align Left"
+						icon="editor-alignleft"
+						onClick={ () => console.log( 'Align Left' ) }
+					></ToolbarButton>
+					<ToolbarButton
+						title="Align Center"
+						icon="editor-aligncenter"
+						onClick={ () => console.log( 'Align Center' ) }
+					></ToolbarButton>
+					<ToolbarButton
+						title="Align Right"
+						icon="editor-alignright"
+						onClick={ () => console.log( 'Align Right' ) }
+					></ToolbarButton>
+
+					<ToolbarDropdownMenu
+						icon="arrow-down-alt2"
+						label={ __( 'More Alignments', 'chocolate' ) }
+						controls={ [
+							{
+								title: __( 'Wide', 'chocolate' ),
+								icon: 'align-wide',
+								onClick: () => console.log( 'Align Wide' ),
+							},
+							{
+								title: __( 'Full', 'chocolate' ),
+								icon: 'align-full-width',
+								onClick: () => console.log( 'Align Full' ),
+							},
+						] }
+					/>
+				</ToolbarGroup>
 			</BlockControls>
 
-			<BlockControls
-				controls={ [
-					{
-						title: 'Button 1',
-						icon: 'admin-generic',
-						isActive: true,
-						onClick: () => console.log( 'Button 1 clicked!' ),
-					},
-					{
-						title: 'Button 2',
-						icon: 'admin-collapse',
-						onClick: () => console.log( 'Button 2 clicked!' ),
-					},
-				] }
-			/>
 			<RichText
 				{ ...useBlockProps() }
 				onChange={ ( value ) => setAttributes( { text: value } ) }
 				value={ text }
 				placeholder={ __( 'My chocolate placeholder', 'chocolate' ) }
 				tagName="h4"
-				allowedFormats={ 'core/bold' }
+				// allowedFormats={ 'core/bold' }
 			/>
-
-			<BlockControls>
-				<p>Other Controls</p>
-			</BlockControls>
 		</>
 	);
 }
