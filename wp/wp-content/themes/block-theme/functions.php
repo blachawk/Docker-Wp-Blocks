@@ -184,3 +184,17 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+/**
+	*  Add favicons to both the front end and back end
+	*/
+function add_my_favicon()
+{
+	$favicon_path = get_template_directory_uri() . '/images/favicon.ico';
+
+	echo '<link rel="shortcut icon" href="' . esc_url($favicon_path) . '" />';
+}
+
+add_action('wp_head', 'add_my_favicon'); //front end
+add_action('admin_head', 'add_my_favicon'); //admin end

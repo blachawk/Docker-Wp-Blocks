@@ -15,7 +15,9 @@
 	"style": "file:./style-index.css",
 	"attributes": {
 		"text": {
-			"type": "string"
+			"type": "string",
+			"source": "html",
+			"selector": "h4"
 		}
 	}
 }
