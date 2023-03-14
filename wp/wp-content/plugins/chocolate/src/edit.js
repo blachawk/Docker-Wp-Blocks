@@ -3,12 +3,19 @@ import {
 	useBlockProps,
 	RichText,
 	BlockControls,
+	InspectorControls,
 	AlignmentToolbar,
 } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
 	ToolbarButton,
 	ToolbarDropdownMenu,
+	PanelBody,
+	TextControl,
+	TextareaControl,
+	ToggleControl,
+	ColorPicker,
+	ColorPalette,
 } from '@wordpress/components';
 import './editor.scss';
 
@@ -24,6 +31,48 @@ export default function Edit( { attributes, setAttributes } ) {
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'My Color Settings', 'chocolate' ) }
+					icon="admin-appearance"
+					initialOpen
+				>
+					<TextControl
+						label="Input Label"
+						value={ text }
+						onChange={ onChangeText }
+						help="my help text"
+					/>
+					<TextareaControl
+						label="Text Area Label"
+						value={ text }
+						onChange={ onChangeText }
+						help="my help text v2"
+					/>
+					<ToggleControl
+						label="Toggle Label"
+						checked={ true }
+						onChange={ ( v ) => console.log( v ) }
+					/>
+					<ColorPicker
+						color={ 'F03' }
+						onChangeComplete={ ( v ) => console.log( v ) }
+					/>
+					<ColorPalette
+						colors={ [
+							{
+								name: 'red',
+								color: '#F00',
+							},
+							{
+								name: 'black',
+								color: '#000',
+							},
+						] }
+						onChange={ ( v ) => console.log( v ) }
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar
 					value={ alignment }
