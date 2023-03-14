@@ -5,6 +5,7 @@ import './editor.scss';
 export default function Edit( { attributes, setAttributes } ) {
 	const { text } = attributes;
 
+	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<RichText
 			{ ...useBlockProps() }
