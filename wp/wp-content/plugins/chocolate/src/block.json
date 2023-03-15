@@ -28,18 +28,19 @@
 			"default": "left"
 		},
 		"backgroundColor": {
-			"type": "string",
-			"default": "red"
+			"type": "string"
 		},
 		"textColor": {
 			"type": "string",
 			"default": "yellow"
 		},
-		"customBackgroundColor": {
-			"type": "string"
-		},
-		"customTextColor": {
-			"type": "string"
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#f03"
+				}
+			}
 		}
 	}
 }
