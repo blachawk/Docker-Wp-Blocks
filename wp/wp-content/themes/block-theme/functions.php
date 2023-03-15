@@ -25,7 +25,6 @@ function block_theme_setup()
 	add_theme_support("editor-styles");
 	add_editor_style("style-editor.css");
 
-
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.

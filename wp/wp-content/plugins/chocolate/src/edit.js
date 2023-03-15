@@ -5,17 +5,16 @@ import {
 	BlockControls,
 	InspectorControls,
 	AlignmentToolbar,
+	PanelColorSettings,
 } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
 	ToolbarButton,
 	ToolbarDropdownMenu,
-	PanelBody,
 	TextControl,
 	TextareaControl,
 	ToggleControl,
 	ColorPicker,
-	ColorPalette,
 } from '@wordpress/components';
 import './editor.scss';
 
@@ -36,10 +35,17 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
+				<PanelColorSettings
 					title={ __( 'My Color Settings', 'chocolate' ) }
 					icon="admin-appearance"
 					initialOpen
+					colorSettings={ [
+						{
+							value: backgroundColor,
+							onChange: onBackgroundColorChange,
+							label: __( 'Background color', 'chocolate' ),
+						},
+					] }
 				>
 					<TextControl
 						label="Input Label"
@@ -62,22 +68,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						color={ 'F03' }
 						onChangeComplete={ ( v ) => console.log( v ) }
 					/>
-
-					<ColorPalette
-						colors={ [
-							{
-								name: 'red',
-								color: '#F00',
-							},
-							{
-								name: 'black',
-								color: '#000',
-							},
-						] }
-						value={ backgroundColor }
-						onChange={ onBackgroundColorChange }
-					/>
-				</PanelBody>
+				</PanelColorSettings>
 			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar
