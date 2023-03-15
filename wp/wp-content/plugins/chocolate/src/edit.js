@@ -20,12 +20,16 @@ import {
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { text, alignment } = attributes;
+	const { text, alignment, backgroundColor } = attributes;
 	const onChangeAlignment = ( newAlignment ) => {
 		setAttributes( { alignment: newAlignment } );
 	};
 	const onChangeText = ( newText ) => {
 		setAttributes( { text: newText } );
+	};
+
+	const onBackgroundColorChange = ( newBgColor ) => {
+		setAttributes( { backgroundColor: newBgColor } );
 	};
 
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
@@ -58,6 +62,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						color={ 'F03' }
 						onChangeComplete={ ( v ) => console.log( v ) }
 					/>
+
 					<ColorPalette
 						colors={ [
 							{
@@ -69,7 +74,8 @@ export default function Edit( { attributes, setAttributes } ) {
 								color: '#000',
 							},
 						] }
-						onChange={ ( v ) => console.log( v ) }
+						value={ backgroundColor }
+						onChange={ onBackgroundColorChange }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -125,6 +131,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				</ToolbarGroup>
 			</BlockControls>
 
+			{ /* https://developer.wordpress.org/block-editor/reference-guides/richtext/#example */ }
 			<RichText
 				{ ...useBlockProps( {
 					className: `text-box-align-${ alignment }`,
@@ -133,8 +140,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				value={ text }
 				placeholder={ __( 'My chocolate placeholder', 'chocolate' ) }
 				tagName="h4"
-				style={ { textAlign: alignment } }
-				// allowedFormats={ 'core/bold' }
+				style={ { textAlign: alignment, backgroundColor } }
 			/>
 		</>
 	);
