@@ -6,6 +6,7 @@ import {
 	InspectorControls,
 	AlignmentToolbar,
 	PanelColorSettings,
+	ContrastChecker,
 } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
@@ -19,7 +20,7 @@ import {
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { text, alignment, backgroundColor } = attributes;
+	const { text, alignment, backgroundColor, textColor } = attributes;
 	const onChangeAlignment = ( newAlignment ) => {
 		setAttributes( { alignment: newAlignment } );
 	};
@@ -31,6 +32,10 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { backgroundColor: newBgColor } );
 	};
 
+	const onTextColorChange = ( newTextColor ) => {
+		setAttributes( { textColor: newTextColor } );
+	};
+
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<>
@@ -39,14 +44,25 @@ export default function Edit( { attributes, setAttributes } ) {
 					title={ __( 'My Color Settings', 'chocolate' ) }
 					icon="admin-appearance"
 					initialOpen
+					disableCustomColors={ false }
 					colorSettings={ [
 						{
 							value: backgroundColor,
 							onChange: onBackgroundColorChange,
-							label: __( 'Background color', 'chocolate' ),
+							label: __( 'Background Color', 'chocolate' ),
+						},
+						{
+							value: textColor,
+							onChange: onTextColorChange,
+							label: __( 'Text Color', 'chocolate' ),
 						},
 					] }
 				>
+					<ContrastChecker
+						textColor={ textColor }
+						backgroundColor={ backgroundColor }
+					/>
+
 					<TextControl
 						label="Input Label"
 						value={ text }
@@ -131,7 +147,11 @@ export default function Edit( { attributes, setAttributes } ) {
 				value={ text }
 				placeholder={ __( 'My chocolate placeholder', 'chocolate' ) }
 				tagName="h4"
-				style={ { textAlign: alignment, backgroundColor } }
+				style={ {
+					textAlign: alignment,
+					backgroundColor,
+					color: textColor,
+				} }
 			/>
 		</>
 	);
