@@ -7,7 +7,11 @@
 	"category": "text",
 	"description": "A clone of vanilla, but with flavor.",
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true
+		}
 	},
 	"textdomain": "chocolate",
 	"editorScript": "file:./index.js",
@@ -24,10 +28,12 @@
 			"default": "left"
 		},
 		"backgroundColor": {
-			"type": "string"
+			"type": "string",
+			"default": "red"
 		},
 		"textColor": {
-			"type": "string"
+			"type": "string",
+			"default": "yellow"
 		},
 		"customBackgroundColor": {
 			"type": "string"
