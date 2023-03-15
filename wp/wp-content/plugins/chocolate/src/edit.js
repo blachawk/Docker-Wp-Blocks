@@ -7,6 +7,7 @@ import {
 	AlignmentToolbar,
 	PanelColorSettings,
 	ContrastChecker,
+	withColors,
 } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
@@ -19,21 +20,25 @@ import {
 } from '@wordpress/components';
 import './editor.scss';
 
-export default function Edit( { attributes, setAttributes } ) {
-	const { text, alignment, backgroundColor, textColor } = attributes;
+function Edit( props ) {
+	const {
+		attributes,
+		setAttributes,
+		backgroundColor,
+		textColor,
+		setBackgroundColor,
+		setTextColor,
+	} = props;
+	const { text, alignment } = attributes;
+
+	//test | lets now see values for attributes and props
+	//console.log( attributes, props );
+
 	const onChangeAlignment = ( newAlignment ) => {
 		setAttributes( { alignment: newAlignment } );
 	};
 	const onChangeText = ( newText ) => {
 		setAttributes( { text: newText } );
-	};
-
-	const onBackgroundColorChange = ( newBgColor ) => {
-		setAttributes( { backgroundColor: newBgColor } );
-	};
-
-	const onTextColorChange = ( newTextColor ) => {
-		setAttributes( { textColor: newTextColor } );
 	};
 
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
@@ -47,20 +52,20 @@ export default function Edit( { attributes, setAttributes } ) {
 					disableCustomColors={ false }
 					colorSettings={ [
 						{
-							value: backgroundColor,
-							onChange: onBackgroundColorChange,
+							value: backgroundColor.color,
+							onChange: setBackgroundColor,
 							label: __( 'Background Color', 'chocolate' ),
 						},
 						{
-							value: textColor,
-							onChange: onTextColorChange,
+							value: textColor.color,
+							onChange: setTextColor,
 							label: __( 'Text Color', 'chocolate' ),
 						},
 					] }
 				>
 					<ContrastChecker
-						textColor={ textColor }
-						backgroundColor={ backgroundColor }
+						textColor={ textColor.color }
+						backgroundColor={ backgroundColor.color }
 					/>
 
 					<TextControl
@@ -149,10 +154,15 @@ export default function Edit( { attributes, setAttributes } ) {
 				tagName="h4"
 				style={ {
 					textAlign: alignment,
-					backgroundColor,
-					color: textColor,
+					backgroundColor: backgroundColor.color,
+					color: textColor.color,
 				} }
 			/>
 		</>
 	);
 }
+
+export default withColors( {
+	backgroundColor: 'backgroundColor',
+	textColor: 'color',
+} )( Edit );
