@@ -5,6 +5,11 @@ import save from './save';
 import metadata from './block.json';
 
 registerBlockType( metadata.name, {
+	icon: {
+		src: 'admin-appearance',
+		background: '#f03',
+		foreground: '#fff',
+	},
 	edit: Edit,
 	save,
 } );
