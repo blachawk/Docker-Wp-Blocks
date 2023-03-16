@@ -7,6 +7,14 @@
 
 .wp-block-course-blocks-chocolate {
 
+    &.is-style-squared {
+        border-radius: 0;
+    }
+
+    &.is-style-rounded {
+        border-radius: 10px;
+    }
+
     &.text-box-align-right {
         text-align: right;
     }

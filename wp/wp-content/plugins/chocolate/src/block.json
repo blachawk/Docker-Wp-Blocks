@@ -19,6 +19,17 @@
 			"blockGap": true
 		}
 	},
+	"styles": [
+		{
+			"name": "squared",
+			"label": "Squared",
+			"isDefault": true
+		},
+		{
+			"name": "rounded",
+			"label": "Rounded"
+		}
+	],
 	"textdomain": "chocolate",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
