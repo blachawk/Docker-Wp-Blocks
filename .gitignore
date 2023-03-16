@@ -9,11 +9,6 @@
 !wp/wp-content/
 !wp/wp-content/plugins/
 
-!wp/wp-content/plugins/text-box/
-!wp/wp-content/plugins/text-box/*
-!wp/wp-content/plugins/text-box/*/*
-!wp/wp-content/plugins/text-box/*/*/*
-
 !wp/wp-content/plugins/vanilla/
 !wp/wp-content/plugins/vanilla/*
 !wp/wp-content/plugins/vanilla/*/*
@@ -24,11 +19,10 @@
 !wp/wp-content/plugins/chocolate/*/*
 !wp/wp-content/plugins/chocolate/*/*/*
 
-!wp/wp-content/themes/
-!wp/wp-content/themes/block-theme/
-!wp/wp-content/themes/block-theme/*
-!wp/wp-content/themes/block-theme/*/*
-!wp/wp-content/themes/block-theme/*/*/*
+!wp/wp-content/plugins/teamMembers/
+!wp/wp-content/plugins/teamMembers/*
+!wp/wp-content/plugins/teamMembers/*/*
+!wp/wp-content/plugins/teamMembers/*/*/*
 
 wp/wp-content/plugins/vanilla/package-lock.json
 wp/wp-content/plugins/vanilla/build
@@ -39,3 +33,14 @@ wp/wp-content/plugins/chocolate/package-lock.json
 wp/wp-content/plugins/chocolate/build
 wp/wp-content/plugins/chocolate/build/*
 wp/wp-content/plugins/chocolate/build/*/*
+
+wp/wp-content/plugins/teamMembers/package-lock.json
+wp/wp-content/plugins/teamMembers/build
+wp/wp-content/plugins/teamMembers/build/*
+wp/wp-content/plugins/teamMembers/build/*/*
+
+!wp/wp-content/themes/
+!wp/wp-content/themes/block-theme/
+!wp/wp-content/themes/block-theme/*
+!wp/wp-content/themes/block-theme/*/*
+!wp/wp-content/themes/block-theme/*/*/*
