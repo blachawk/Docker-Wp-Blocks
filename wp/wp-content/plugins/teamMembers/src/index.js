@@ -6,7 +6,7 @@ import metadata from './block.json';
 
 registerBlockType( metadata.name, {
 	icon: {
-		src: 'admin-appearance',
+		src: 'admin-users',
 		background: '#f03',
 		foreground: '#fff',
 	},

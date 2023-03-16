@@ -1,27 +1,22 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "course-blocks/chocolate",
+	"name": "course-blocks/team-members-local",
 	"version": "0.1.0",
-	"title": "Chocolate",
-	"category": "text",
-	"description": "A clone of vanilla, but with flavor.",
+	"title": "Team Members Local",
+	"category": "media",
+	"description": "A Team Members Grid Platform",
+	"keywords": [
+		"Team",
+		"Local",
+		"Members",
+		"Grid"
+	],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "chocolate",
+	"textdomain": "tml",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"attributes": {
-		"text": {
-			"type": "string",
-			"source": "html",
-			"selector": "h4"
-		},
-		"alignment": {
-			"type": "string",
-			"default": "left"
-		}
-	}
+	"style": "file:./style-index.css"
 }

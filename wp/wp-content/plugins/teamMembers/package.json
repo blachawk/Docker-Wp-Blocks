@@ -1,8 +1,8 @@
 {
-	"name": "chocolate",
+	"name": "team-members-local",
 	"version": "0.1.0",
-	"description": "A clone of vanilla, but with flavor.",
-	"author": "blackhawks",
+	"description": "A Team Member platform for nested block learning purposes",
+	"author": "blachawk",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
@@ -25,9 +25,9 @@
 		}
 	},
 	"devDependencies": {
-		"@wordpress/components": "^23.5.0",
-		"@wordpress/prettier-config": "^2.11.0",
-		"@wordpress/scripts": "^25.5.1",
-		"@wordpress/stylelint-config": "^21.11.0"
+		"@wordpress/components": "^23.6.0",
+		"@wordpress/prettier-config": "^2.12.0",
+		"@wordpress/scripts": "^26.0.0",
+		"@wordpress/stylelint-config": "^21.12.0"
 	}
 }

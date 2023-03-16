@@ -1,14 +1,14 @@
 <?php
 /**
-	* Plugin Name:       Chocolate
-	* Description:       A clone of vanilla, but with flavor.
+	* Plugin Name:       Team Members Local
+	* Description:       A Team Member platform for nested block learning purposes
 	* Requires at least: 5.9
 	* Requires PHP:      7.0
 	* Version:           0.1.0
-	* Author:            Blackhawks
+	* Author:            blachawk
 	* License:           GPL-2.0-or-later
 	* License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-	* Text Domain:       vanilla
+	* Text Domain:       tml
 	*
 	* @package           course-blocks
 	*/
@@ -20,8 +20,8 @@
 	*
 	* @see https://developer.wordpress.org/reference/functions/register_block_type/
 	*/
-function course_blocks_chocolate_block_init()
+function course_blocks_team_members_local_block_init()
 {
 	register_block_type(__DIR__ . '/build');
 }
-add_action('init', 'course_blocks_chocolate_block_init');
+add_action('init', 'course_blocks_team_members_local_block_init');
