@@ -36,6 +36,10 @@
 		"backgroundColor": {
 			"type": "string"
 		},
+		"shadow": {
+			"type": "boolean",
+			"default": false
+		},
 		"textColor": {
 			"type": "string",
 			"default": "yellow"
