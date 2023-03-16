@@ -10,6 +10,7 @@ import {
 	//eslint-disable-next-line
 	__experimentalBoxControl as BoxControl,
 	PanelBody,
+	RangeControl,
 } from '@wordpress/components';
 
 import classnames from 'classnames';
@@ -18,7 +19,7 @@ import './editor.scss';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { text, alignment, shadow } = attributes;
+	const { text, alignment, shadow, shadowOpacity } = attributes;
 
 	//test | lets now see values for attributes and props
 	//console.log( attributes, props );
@@ -32,19 +33,32 @@ export default function Edit( props ) {
 	const toggleShadow = () => {
 		setAttributes( { shadow: ! shadow } );
 	};
+	const onChangeShadowOpacity = ( newShadowOpacity ) => {
+		setAttributes( { shadowOpacity: newShadowOpacity } );
+	};
 
 	//all for shadows
 	const classes = classnames( `text-box-align-${ alignment }`, {
 		'has-shadow': shadow,
+		[ `shadow-opacity-${ shadowOpacity }` ]: shadow && shadowOpacity,
 	} );
 
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody>
-					<BoxControl onChange={ ( v ) => console.log( v ) } />
-				</PanelBody>
+				{ shadow && (
+					<PanelBody title={ __( 'Shadow Settings', 'chocolate' ) }>
+						<RangeControl
+							label={ __( 'Shadow Opacity', 'chocolate' ) }
+							value={ shadowOpacity }
+							min={ 10 }
+							max={ 90 }
+							step={ 10 }
+							onChange={ onChangeShadowOpacity }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 
 			<BlockControls
