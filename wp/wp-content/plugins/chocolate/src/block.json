@@ -30,6 +30,13 @@
 			"label": "Rounded"
 		}
 	],
+	"example": {
+		"attributes": {
+			"text": "This is some text!",
+			"gradient": "red-to-blue",
+			"shadow": true
+		}
+	},
 	"textdomain": "chocolate",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
