@@ -10,7 +10,8 @@
 		"html": false,
 		"color": {
 			"background": true,
-			"text": true
+			"text": true,
+			"gradients": true
 		}
 	},
 	"textdomain": "chocolate",
