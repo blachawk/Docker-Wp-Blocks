@@ -4,8 +4,12 @@ import {
 	RichText,
 	BlockControls,
 	AlignmentToolbar,
+	InspectorControls,
 } from '@wordpress/block-editor';
-
+import {
+	__experimentalBoxControl as BoxControl,
+	PanelBody,
+} from '@wordpress/components';
 import './editor.scss';
 
 export default function Edit( props ) {
@@ -25,6 +29,11 @@ export default function Edit( props ) {
 	// additional options for our RichText component - https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody>
+					<BoxControl onChange={ ( v ) => console.log( v ) } />
+				</PanelBody>
+			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar
 					value={ alignment }
