@@ -14,7 +14,9 @@
 			"gradients": true
 		},
 		"spacing": {
-			"padding": true
+			"padding": true,
+			"margin": true,
+			"blockGap": true
 		}
 	},
 	"textdomain": "chocolate",
@@ -39,20 +41,7 @@
 			"default": "yellow"
 		},
 		"style": {
-			"type": "object",
-			"default": {
-				"color": {
-					"background": "#f03"
-				},
-				"spacing": {
-					"padding": {
-						"top": "20px",
-						"right": "20px",
-						"bottom": "20px",
-						"left": "20px"
-					}
-				}
-			}
+			"type": "object"
 		}
 	}
 }

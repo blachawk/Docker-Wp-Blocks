@@ -7,6 +7,7 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 import {
+	//eslint-disable-next-line
 	__experimentalBoxControl as BoxControl,
 	PanelBody,
 } from '@wordpress/components';
