@@ -10,6 +10,22 @@ export default function Edit() {
 	const blockProps = useBlockProps({ className: 'my-class' });
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ['course-blocks/team-member'],
+		template: [
+			[
+				'course-blocks/team-member',
+				{
+					name: 'Template Name 1',
+					bio: 'Template Bio 1',
+				},
+			],
+			[
+				'course-blocks/team-member',
+				{
+					name: 'Template Name 2',
+					bio: 'Template Bio 2',
+				},
+			],
+		],
 		renderAppender: InnerBlocks.ButtonBlockAppender,
 	});
 
