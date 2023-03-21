@@ -70,22 +70,27 @@
         }
 
         > [data-type="course-blocks/team-member"] {
-            margin: 10px;
+            margin: 10px 10px 20px;
+
+            .components-placeholder.components-placeholder {
+                box-shadow:none;
+                margin-bottom:20px;
+            }
 
             .wp-block-course-blocks-team-member-img {
-                position:relative;
+                position: relative;
 
                 &.is-loading img {
-                    opacity:0.3;
+                    opacity: 0.3;
                 }
 
                 .components-spinner {
-                    position:absolute;
-                    left:0;
-                    right:0;
-                    top:0;
-                    bottom:0;
-                    margin:auto;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
                 }
             }
 
@@ -101,6 +106,18 @@
                 font-size: 1rem;
                 font-weight: 300;
                 margin-bottom: 5px;
+            }
+        }
+
+        .components-notice-list.components-with-notices-ui {
+
+            .components-notice {
+                flex-wrap: wrap;
+                padding: 0 0.5rem;
+            }
+
+            .components-notice__content {
+                word-break: break-all;
             }
         }
     }
