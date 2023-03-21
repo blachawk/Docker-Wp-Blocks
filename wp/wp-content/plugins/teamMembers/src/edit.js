@@ -3,13 +3,20 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	useInnerBlocksProps,
+	InspectorControls,
 } from '@wordpress/block-editor';
+
+import { PanelBody, RangeControl } from '@wordpress/components';
+
+import { __ } from '@wordpress/i18n';
+
 import './editor.scss';
 
-export default function Edit() {
-	const blockProps = useBlockProps({ className: 'my-class' });
+export default function Edit({ attributes, setAttributes }) {
+	const blockProps = useBlockProps({ className: 'tml-editor-wrapper' });
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ['course-blocks/team-member'],
+		orientation: 'horizontal',
 		template: [
 			[
 				'course-blocks/team-member',
@@ -29,8 +36,29 @@ export default function Edit() {
 		renderAppender: InnerBlocks.ButtonBlockAppender,
 	});
 
+	//DESTRUCTURING OUR COLUMN ATTRIBUTES
+	const { columns } = attributes;
+	const onChangeColumns = (newColumns) => {
+		setAttributes({ columns: newColumns });
+	};
+
 	return (
-		<div {...useBlockProps()}>
+		<div
+			{...useBlockProps({
+				className: `has-${columns}-columns`,
+			})}
+		>
+			<InspectorControls>
+				<PanelBody>
+					<RangeControl
+						label={__('Columns', 'tml')}
+						min={1}
+						max={6}
+						onChange={onChangeColumns}
+						value={columns}
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<section {...innerBlocksProps} />
 		</div>
 	);
