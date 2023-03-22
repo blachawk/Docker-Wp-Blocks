@@ -1,3 +1,4 @@
+import { useEffect, useState } from '@wordpress/element';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
@@ -5,11 +6,14 @@ import {
 	MediaPlaceholder,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import { isBlobURL } from '@wordpress/blob';
+import { isBlobURL, revokeBlobURL } from '@wordpress/blob';
 import { Spinner, withNotices } from '@wordpress/components';
 
 function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
-	const { name, bio, url, alt } = attributes;
+	const { name, bio, url, alt, id } = attributes;
+
+	//help fight memory leaks to help free up memory
+	const [blobURL, setBlobURL] = useState();
 
 	const blockProps = useBlockProps({
 		className: 'my-team-member-class-item',
@@ -47,6 +51,26 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 		noticeOperations.removeAllNotices();
 		noticeOperations.createErrorNotice(message);
 	};
+
+	//Edge cases to fight against browser refreshes when media is uploading at the same time
+	useEffect(() => {
+		if (!id && isBlobURL(url)) {
+			setAttributes({
+				url: undefined,
+				alt: '',
+			});
+		}
+	}, []);
+
+	//Fight against memory leaks
+	useEffect(() => {
+		if (isBlobURL(url)) {
+			setBlobURL(url);
+		} else {
+			revokeBlobURL(blobURL);
+			setBlobURL();
+		}
+	}, [url]);
 
 	return (
 		<div {...innerBlocksProps}>
