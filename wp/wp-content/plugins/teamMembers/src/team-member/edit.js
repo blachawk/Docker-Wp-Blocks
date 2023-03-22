@@ -4,10 +4,20 @@ import {
 	useInnerBlocksProps,
 	RichText,
 	MediaPlaceholder,
+	BlockControls,
+	MediaReplaceFlow,
+	InspectorControls,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { isBlobURL, revokeBlobURL } from '@wordpress/blob';
-import { Spinner, withNotices } from '@wordpress/components';
+import {
+	Spinner,
+	withNotices,
+	ToolbarButton,
+	PanelBody,
+	TextareaControl,
+	Panel,
+} from '@wordpress/components';
 
 function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 	const { name, bio, url, alt, id } = attributes;
@@ -27,6 +37,10 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 
 	const onChangeBio = (newBio) => {
 		setAttributes({ bio: newBio });
+	};
+
+	const onChangeAlt = (newAlt) => {
+		setAttributes({ alt: newAlt });
 	};
 
 	const onSelectImage = (image) => {
@@ -72,41 +86,87 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 		}
 	}, [url]);
 
+	//remove image button function
+	const removeImage = () => {
+		setAttributes({
+			url: undefined,
+			alt: '',
+			id: undefined,
+		});
+	};
+
 	return (
-		<div {...innerBlocksProps}>
+		<>
+			<InspectorControls>
+				<PanelBody title={__('Image Settings', 'tml')}>
+					{url && !isBlobURL(url) && (
+						<TextareaControl
+							label={__('Alt Text', 'tml')}
+							value={alt}
+							onChange={onChangeAlt}
+							help={__(
+								'Alternative text describe your actions to editors here so they understand what is going on.',
+								'tml'
+							)}
+						/>
+					)}
+				</PanelBody>
+			</InspectorControls>
+
 			{url && (
-				<div
-					className={`wp-block-course-blocks-team-member-img ${
-						isBlobURL(url) ? 'is-loading' : ''
-					}`}
-				>
-					<img src={url} alt={alt} />
-					{isBlobURL(url) && <Spinner />}
-				</div>
+				<BlockControls group="inline">
+					<div className={`mMediaBtns`}>
+						<MediaReplaceFlow
+							name={__('Replace Image', 'tml')}
+							onSelect={onSelectImage}
+							onSelectURL={onSelectURL}
+							onError={onUploadError}
+							accept="image/*"
+							allowedTypes={['image']}
+							mediaId={id}
+							mediaURL={url}
+						/>
+						<ToolbarButton onClick={removeImage}>
+							{__('Remove Image', 'tml')}
+						</ToolbarButton>
+					</div>
+				</BlockControls>
 			)}
-			<MediaPlaceholder
-				icon="admin-users"
-				onSelect={onSelectImage}
-				onSelectURL={onSelectURL}
-				onError={onUploadError}
-				// accept="image/*"
-				allowedTypes={['image']}
-				disableMediaButtons={url}
-				notices={noticeUI}
-			/>
-			<RichText
-				placeholder={__('Member Name', 'tml')}
-				tagName="h4"
-				onChange={onChangeName}
-				value={name}
-			/>
-			<RichText
-				placeholder={__('Member Bio', 'tml')}
-				tagName="p"
-				onChange={onChangeBio}
-				value={bio}
-			/>
-		</div>
+			<div {...innerBlocksProps}>
+				{url && (
+					<div
+						className={`wp-block-course-blocks-team-member-img ${
+							isBlobURL(url) ? 'is-loading' : ''
+						}`}
+					>
+						<img src={url} alt={alt} />
+						{isBlobURL(url) && <Spinner />}
+					</div>
+				)}
+				<MediaPlaceholder
+					icon="admin-users"
+					onSelect={onSelectImage}
+					onSelectURL={onSelectURL}
+					onError={onUploadError}
+					// accept="image/*"
+					allowedTypes={['image']}
+					disableMediaButtons={url}
+					notices={noticeUI}
+				/>
+				<RichText
+					placeholder={__('Member Name', 'tml')}
+					tagName="h4"
+					onChange={onChangeName}
+					value={name}
+				/>
+				<RichText
+					placeholder={__('Member Bio', 'tml')}
+					tagName="p"
+					onChange={onChangeBio}
+					value={bio}
+				/>
+			</div>
+		</>
 	);
 }
 

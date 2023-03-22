@@ -8,6 +8,30 @@
     border: 1px dotted #b29069;
 }
 
+
+//MEDIA REPLACER TEXT FOR ICON
+.mMediaBtns button {
+    font-size: 0 !important;
+}
+
+.mMediaBtns div button::after,
+.mMediaBtns div + button::after {
+    font-family: dashicons;
+    content: "\f128";
+    color: #008b8b;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.35rem;
+    position: relative;
+    top: 0.8rem;
+    height: 50px;
+}
+
+.mMediaBtns div + button::after {
+    content: "\f158";
+    color: #708090;
+}
+
+
 //STYLE EDITOR AREA TO LOOK LIKE OUR FRONT-END FOR COLUMNS
 
 .wp-block-course-blocks-team-members-local {
@@ -73,8 +97,8 @@
             margin: 10px 10px 20px;
 
             .components-placeholder.components-placeholder {
-                box-shadow:none;
-                margin-bottom:20px;
+                box-shadow: none;
+                margin-bottom: 20px;
             }
 
             .wp-block-course-blocks-team-member-img {
@@ -121,5 +145,4 @@
             }
         }
     }
-
 }
