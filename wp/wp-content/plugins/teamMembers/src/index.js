@@ -35,6 +35,29 @@ registerBlockType(metadata.name, {
 					);
 				},
 			},
+			{
+				type: 'block',
+				blocks: ['core/image'],
+				isMultiBlock: true,
+				transform: (attributes) => {
+					const innerBlocks = attributes.map(({ url, id, alt }) => {
+						return createBlock('course-blocks/team-member', {
+							alt,
+							id,
+							url,
+						});
+					});
+
+					return createBlock(
+						metadata.name,
+						{
+							columns:
+								attributes.length > 3 ? 3 : attributes.length,
+						},
+						innerBlocks
+					);
+				},
+			},
 		],
 	},
 });
