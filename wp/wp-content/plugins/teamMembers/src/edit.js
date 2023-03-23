@@ -29,23 +29,29 @@ export default function Edit({ attributes, setAttributes }) {
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ['course-blocks/team-member'],
 		orientation: 'horizontal',
+		renderAppender: InnerBlocks.ButtonBlockAppender,
 		template: [
 			[
 				'course-blocks/team-member',
+
 				{
-					name: 'Template Name 1',
-					bio: 'Template Bio 1',
-				},
-			],
-			[
-				'course-blocks/team-member',
-				{
-					name: 'Template Name 2',
-					bio: 'Template Bio 2',
+					name: 'John Doe',
+					bio: 'A demo bio for this specific preview block, before an editor decides to use this block, from the block list.',
+					url: 'https://picsum.photos/468/500',
+					socialLinks: [
+						{
+							icon: 'facebook',
+						},
+						{
+							icon: 'twitter',
+						},
+						{
+							icon: 'instagram',
+						},
+					],
 				},
 			],
 		],
-		renderAppender: InnerBlocks.ButtonBlockAppender,
 	});
 
 	return (

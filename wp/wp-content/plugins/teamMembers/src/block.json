@@ -6,10 +6,18 @@
 	"title": "Team Members Local",
 	"category": "media",
 	"description": "A Team Members Grid Platform",
-	"keywords": ["Team", "Local", "Members", "Grid"],
+	"keywords": [
+		"Team",
+		"Local",
+		"Members",
+		"Grid"
+	],
 	"supports": {
 		"html": false,
-		"align": ["wide", "full"]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"textdomain": "tml",
 	"editorScript": "file:./index.js",
@@ -19,6 +27,11 @@
 		"columns": {
 			"type": "number",
 			"default": 2
+		}
+	},
+	"example": {
+		"attributes": {
+			"columns": 1
 		}
 	}
 }
