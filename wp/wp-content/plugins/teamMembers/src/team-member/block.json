@@ -6,7 +6,13 @@
 	"title": "Team Member",
 	"category": "media",
 	"description": "An individual member for Team Members Local",
-	"keywords": ["Team", "Local", "Member", "Grid", "individual"],
+	"keywords": [
+		"Team",
+		"Local",
+		"Member",
+		"Grid",
+		"individual"
+	],
 	"supports": {
 		"html": false,
 		"reusable": false
