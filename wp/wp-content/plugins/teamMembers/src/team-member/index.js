@@ -1,16 +1,15 @@
 import { registerBlockType } from '@wordpress/blocks';
 // import { __ } from '@wordpress/i18n';
-import metadata from './block.json';
 import Edit from './edit';
 import Save from './save';
 
-registerBlockType(metadata.name, {
-	title: metadata.title,
-	description: metadata.description,
+registerBlockType('course-blocks/team-member', {
+	title: 'Team Member',
+	description: 'An individual member for Team Members Local',
 	icon: 'admin-users',
 	parent: ['course-blocks/team-members-local'],
 	supports: {
-		reusable: metadata.supports.reusable,
+		reusable: false,
 	},
 	attributes: {
 		name: {
@@ -41,10 +40,7 @@ registerBlockType(metadata.name, {
 		},
 		socialLinks: {
 			type: 'array',
-			default: [
-				{ link: 'https://facebook.com', icon: 'facebook' },
-				{ link: 'https://instragram.com', icon: 'instagram' },
-			],
+			default: [],
 			source: 'query',
 			selector: '.wp-block-course-blocks-team-member-social-links ul li',
 			query: {
