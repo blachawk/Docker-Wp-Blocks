@@ -72,5 +72,38 @@
             font-weight: 300;
             margin-bottom: 5px;
         }
+
+        .wp-block-course-blocks-team-member-social-links {
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                padding: 0;
+                margin: 15px -5px 0;
+
+                li {
+                    margin: 5px;
+
+                    a {
+                        text-decoration: none;
+                    }
+
+                    span.dashicon {
+                        color: #4e4e4e;
+                        font-size: 26px;
+                        width: auto;
+                        height: auto;
+                    }
+
+                    button {
+                        background: none;
+                        border: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
+            }
+        }
     }
 }

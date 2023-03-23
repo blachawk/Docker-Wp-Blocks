@@ -198,3 +198,9 @@ function add_my_favicon()
 
 add_action('wp_head', 'add_my_favicon'); //front end
 add_action('admin_head', 'add_my_favicon'); //admin end
+
+
+function themename_load_dashicons() {
+	wp_enqueue_style( 'dashicons' );
+}
+add_action( 'wp_enqueue_scripts', 'themename_load_dashicons' );

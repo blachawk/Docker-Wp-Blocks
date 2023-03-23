@@ -5,7 +5,6 @@
  */
 
 
-
 .wp-block-cource-blocks-chocolate {
     border: 1px dotted #b29069;
 }
@@ -132,6 +131,65 @@
                 font-weight: 300;
                 margin-bottom: 5px;
             }
+
+
+            .my-team-member-class-item {
+
+                .wp-block-course-blocks-team-member-social-links {
+
+                    ul {
+                        display: flex;
+                        flex-wrap: wrap;
+                        list-style: none;
+                        padding: 0;
+                        margin: 15px -5px 0;
+
+                        li {
+                            margin: 5px;
+
+                            span.dashicon {
+                                color: #4e4e4e;
+                                font-size: 26px;
+                                width: auto;
+                                height: auto;
+                            }
+
+                            &.is-selected {
+                                outline: solid 2px  #6a5acd;
+                            }
+
+                            button {
+                                background: none;
+                                border: none;
+                                padding: 0;
+                                margin: 0;
+                            }
+
+                            &.wp-block-course-blocks-team-member-social-links-add {
+
+                                button {
+
+                                    outline: 1px dashed;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .wp-block-course-blocks-team-member-link-form {
+                background: #fff;
+                border: 1px solid;
+                padding: 10px;
+                margin: 10px;
+
+                input {
+                    border: solid 1px #ccc;
+                }
+            }
+
         }
 
         .components-notice-list.components-with-notices-ui {
