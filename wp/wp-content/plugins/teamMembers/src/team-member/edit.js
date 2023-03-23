@@ -1,4 +1,4 @@
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useState, useRef } from '@wordpress/element';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
@@ -16,7 +16,6 @@ import {
 	ToolbarButton,
 	PanelBody,
 	TextareaControl,
-	Panel,
 } from '@wordpress/components';
 
 function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
@@ -28,6 +27,9 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 	const blockProps = useBlockProps({
 		className: 'my-team-member-class-item',
 	});
+
+	//focusing on name input after selecting an image
+	const titleRef = useRef();
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
 
@@ -84,6 +86,11 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 			revokeBlobURL(blobURL);
 			setBlobURL();
 		}
+	}, [url]);
+
+	//focusing on name input after selecting an image
+	useEffect(() => {
+		titleRef.current.focus();
 	}, [url]);
 
 	//remove image button function
@@ -154,6 +161,7 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 					notices={noticeUI}
 				/>
 				<RichText
+					ref={titleRef}
 					placeholder={__('Member Name', 'tml')}
 					tagName="h4"
 					onChange={onChangeName}
