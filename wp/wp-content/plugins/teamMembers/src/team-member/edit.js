@@ -105,7 +105,9 @@ function Edit({
 
 	//focusing on name input after selecting an image
 	useEffect(() => {
-		titleRef.current.focus();
+		if (url && isSelected) {
+			titleRef.current.focus();
+		}
 	}, [url]);
 
 	useEffect(() => {
