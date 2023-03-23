@@ -4,7 +4,6 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
-import { InnerBlocks } from '@wordpress/block-editor';
 
 registerBlockType(metadata.name, {
 	icon: {
