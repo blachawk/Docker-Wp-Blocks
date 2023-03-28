@@ -2,7 +2,7 @@
 	"rules": {
 		"no-console": [
 			"warn",
-			{ "allow": ["clear", "info", "error", "dir", "trace", "log"] }
+			{ "allow": [ "clear", "info", "error", "dir", "trace", "log" ] }
 		]
 	},
 	"extends": [

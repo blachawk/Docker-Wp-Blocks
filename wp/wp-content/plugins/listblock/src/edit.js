@@ -11,7 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InnerBlocks,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,9 +35,11 @@ import './editor.scss';
  */
 
 export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __( 'List Block – hello from the editor!', 'bh-l' ) }
-		</p>
-	);
+	const blockProps = useBlockProps( { className: 'my-custom-class' } );
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: [ 'create-block/nffa-create-block-list-item' ],
+		renderAppender: InnerBlocks.ButtonBlockAppender,
+	} );
+
+	return <ul { ...innerBlocksProps } />;
 }
