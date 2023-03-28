@@ -185,8 +185,12 @@
   }
  },
  "styles": {
+  "typography": {
+   "fontFamily": "var(--wp--preset--font-family--system-fonts)",
+   "fontSize": "var(--wp--preset--font-size--small)"
+  },
   "color": {
-   "background": "pink"
+   "background": "#ffffff"
   },
   "spacing": {
    "margin": {
