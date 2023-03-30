@@ -10,3 +10,13 @@
 	color: #fff;
 	padding: 2px;
 }
+
+
+/*PARENT THEME OVERRIDES*/
+.page-template-default  {
+	#primary {
+		.page {
+			max-width:none;
+		}
+	}
+}
