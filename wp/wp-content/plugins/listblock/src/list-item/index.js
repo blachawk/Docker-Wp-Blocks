@@ -8,7 +8,10 @@ registerBlockType( 'blachawk-blocks/list-block-item', {
 	description: 'A list item for list block',
 	category: 'text',
 	icon: 'minus',
-	parent: [ 'blachawk-blocks/list-block' ],
+	parent: [
+		'blachawk-blocks/list-block',
+		'blachawk-blocks/list-block-unordered',
+	],
 	supports: {
 		reusable: false,
 	},

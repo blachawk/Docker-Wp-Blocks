@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+// import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -34,12 +34,23 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 
-export default function Edit() {
-	const blockProps = useBlockProps( { className: 'my-custom-class' } );
+export default function Edit( { attributes } ) {
+	const blockProps = useBlockProps( { className: 'my-list-block-group' } );
+
+	//SET FOR RENDER APPENDER
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
-		allowedBlocks: [ 'create-block/nffa-create-block-list-item' ],
+		allowedBlocks: [ 'blachawk-blocks/list-block-item' ],
 		renderAppender: InnerBlocks.ButtonBlockAppender,
 	} );
 
-	return <ul { ...innerBlocksProps } />;
+	//SET FOR PARENT ELEMENT
+
+	// const { attributes } = props;
+	const { listOrdered } = attributes;
+
+	return listOrdered ? (
+		<ol { ...innerBlocksProps } />
+	) : (
+		<ul { ...innerBlocksProps } />
+	);
 }

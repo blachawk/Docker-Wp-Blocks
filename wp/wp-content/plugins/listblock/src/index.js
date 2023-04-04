@@ -1,3 +1,5 @@
+import { __ } from '@wordpress/i18n';
+
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -42,4 +44,26 @@ registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save,
+
+	variations: [
+		{
+			name: 'blachawk-blocks/list-block-unordered',
+			title: __( 'List Block Ordered' ),
+			icon: {
+				src: 'list-view',
+				background: '#4682b4',
+				foreground: '#fff',
+			},
+			keywords: [ 'blachawk', 'lists', 'list', 'unordered', 'item' ],
+			attributes: {
+				listOrdered: true,
+			},
+			innerBlocks: [
+				[
+					'blachawk-blocks/list-block-item',
+					{ level: 2, placeholder: 'Heading' },
+				],
+			],
+		},
+	],
 } );

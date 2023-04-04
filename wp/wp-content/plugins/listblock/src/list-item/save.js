@@ -2,7 +2,8 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Save() {
 	const blockProps = useBlockProps.save( {
-		className: 'my-additional-list-item-class',
+		//we don't need this but its cool to know
+		//className: 'my-additional-list-item-class',
 	} );
 
 	return (

@@ -15,9 +15,20 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
-	return (
-		<ul { ...useBlockProps.save() }>
+
+export default function save( { attributes } ) {
+	const { listOrdered } = attributes;
+
+	const blockProps = useBlockProps.save( {
+		className: `my-list-block-group`,
+	} );
+
+	return listOrdered ? (
+		<ol { ...blockProps }>
+			<InnerBlocks.Content />
+		</ol>
+	) : (
+		<ul { ...blockProps }>
 			<InnerBlocks.Content />
 		</ul>
 	);
