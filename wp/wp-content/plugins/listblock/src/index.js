@@ -58,12 +58,7 @@ registerBlockType( metadata.name, {
 			attributes: {
 				listOrdered: true,
 			},
-			innerBlocks: [
-				[
-					'blachawk-blocks/list-block-item',
-					{ level: 2, placeholder: 'Heading' },
-				],
-			],
+			innerBlocks: [ [ 'blachawk-blocks/list-block-item' ] ],
 		},
 	],
 } );
