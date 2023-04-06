@@ -23,10 +23,30 @@
 	// 	}
 	// }
 
+// .block-editor-inserter__preview-container {
+// 	border:solid 1rem yellow;
+
+// 		.block-editor-block-icon {
+// 			border:solid 1rem grey;
+// 		}
+
+// 	.block-editor-block-card {
+// 		padding: 0;
+// 		border:solid 1rem red;
+// 	}
+
+// 	.block-editor-block-card__title {
+// 		border:solid 1rem green;
+// 	}
+
+// 	iframe {
+// 		border:solid 1rem gold;
+// 	}
+// }
+
 .previewWindow {
-	// border:solid 1rem pink;
-	padding:0;
-	margin:0;
 	position:relative;
-	left:-8rem; //I THINK I HAVE TO DO THIS DUE TO THE THEME....
+	top:-2rem; //HACK TO MAKE THIS FLUSH
+	left:-8rem; //HACK TO MAKE THIS FLUSH
+	margin-bottom:-3.5rem;
 }
