@@ -6,17 +6,19 @@
  */
 
 .wp-block-create-block-listblock {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+    background-color: #21759b;
+    color: #fff;
+    padding: 2px;
 }
 
 
 /*PARENT THEME OVERRIDES*/
-.page-template-default  {
-	#primary {
-		.page {
-			max-width:none;
-		}
-	}
+.page-template-default {
+
+    #primary {
+
+        .page {
+            max-width: none;
+        }
+    }
 }

@@ -6,12 +6,7 @@
 	"title": "List Block",
 	"category": "text",
 	"description": "A custom list block.  This will display in the preview panel.",
-	"keywords": [
-		"blachawk",
-		"lists",
-		"list",
-		"item"
-	],
+	"keywords": [ "blachawk", "lists", "list", "item" ],
 	"supports": {
 		"html": false
 	},
