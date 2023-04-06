@@ -2,8 +2,8 @@
  "version": 2,
  "settings": {
   "layout": {
-   "contentSize": "",
-   "wideSize": "600px"
+   "contentSize": "1200px",
+   "wideSize": "1200px"
   },
   "spacing": {
    "margin": true,
@@ -133,7 +133,7 @@
    "fontSizes": [
     {
      "slug": "small",
-     "size": "1rem",
+     "size": "1.0625rem",
      "name": "Small"
     },
     {

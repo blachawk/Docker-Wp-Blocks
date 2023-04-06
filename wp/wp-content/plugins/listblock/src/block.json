@@ -23,6 +23,15 @@
 		"listOrdered": {
 			"type": "boolean",
 			"default": false
+		},
+		"_cover": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"_cover": "https://placehold.co/600x400/000000/FFF"
 		}
 	}
 }

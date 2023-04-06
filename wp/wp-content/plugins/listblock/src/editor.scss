@@ -9,5 +9,24 @@
 }
 
 .my-list-item  {
-	max-width:90%;
+	 max-width:90%;
+}
+
+//PLAYING AROUND WITH THE PREVIEW POP-UP WINDOW
+	// .block-editor-inserter__preview-container {
+	// 	border:solid 1rem purple!important;
+	// 	iframe {
+	// 		border:solid 1rem orange;
+	// 		padding:0;
+	// 		margin:0;
+	// 		left:0;
+	// 	}
+	// }
+
+.previewWindow {
+	// border:solid 1rem pink;
+	padding:0;
+	margin:0;
+	position:relative;
+	left:-8rem; //I THINK I HAVE TO DO THIS DUE TO THE THEME....
 }

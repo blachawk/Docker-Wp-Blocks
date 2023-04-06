@@ -48,6 +48,15 @@ export default function Edit( { attributes } ) {
 	// const { attributes } = props;
 	const { listOrdered } = attributes;
 
+	//PREVIEW POP-UP AREA
+	if ( attributes._cover ) {
+		return (
+			<div className="previewWindow">
+				<img src={ attributes._cover } alt="" />
+			</div>
+		);
+	}
+
 	return listOrdered ? (
 		<ol { ...innerBlocksProps } />
 	) : (
