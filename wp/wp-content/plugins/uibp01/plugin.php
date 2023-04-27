@@ -20,8 +20,8 @@
 	*
 	* @see https://developer.wordpress.org/reference/functions/register_block_type/
 	*/
-function blachawk_block_uibp01_block_init()
+function blachawk_blocks_uibp01_block_init()
 {
 	register_block_type(__DIR__ . '/build');
 }
-add_action('init', 'blachawk_block_uibp01_block_init()');
+add_action('init', 'blachawk_blocks_uibp01_block_init()');
