@@ -1,7 +1,7 @@
 {
-	"name": "listblock",
+	"name": "uibp01",
 	"version": "0.1.0",
-	"description": "A custom list block",
+	"description": "The purpose of this plugin is to see if allowedBlocks truly works within useInnerBlocksProps, or not.",
 	"author": "blachawk",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
@@ -30,7 +30,7 @@
 		"@wordpress/compose": "^6.6.0",
 		"@wordpress/element": "^5.6.0",
 		"@wordpress/prettier-config": "^2.12.0",
-		"@wordpress/scripts": "^26.0.0",
+		"@wordpress/scripts": "^26.3.0",
 		"@wordpress/stylelint-config": "^21.12.0"
 	}
 }
