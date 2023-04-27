@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+//import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -31,10 +31,14 @@ import './editor.scss';
  */
 
 export default function Edit() {
-	const blockProps = useBlockProps({ className: 'custom-class' });
-	const combinedBlockProps = useInnerBlocksProps(blockProps, {
-		allowedBlocks: ['core/heading', 'core/paragraph'],
-	});
+	const blockProps = useBlockProps( { className: 'custom-class' } );
+	const combinedBlockProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: [
+			'core/heading',
+			'core/paragraph',
+			'blachawk-blocks/uibp01-item',
+		],
+	} );
 
-	return <section {...combinedBlockProps} />;
+	return <section { ...combinedBlockProps } />;
 }
