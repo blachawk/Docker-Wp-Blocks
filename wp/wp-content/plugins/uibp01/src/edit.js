@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +29,12 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
+
 export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Uibp 01 – hello from the editor!', 'uibp01' ) }
-		</p>
-	);
+	const blockProps = useBlockProps({ className: 'custom-class' });
+	const combinedBlockProps = useInnerBlocksProps(blockProps, {
+		allowedBlocks: ['core/heading', 'core/paragraph'],
+	});
+
+	return <section {...combinedBlockProps} />;
 }
