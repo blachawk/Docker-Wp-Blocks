@@ -6,7 +6,84 @@
  */
 
 .wp-block-create-block-stickyblock {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+    background-color: #21759b;
+    color: #fff;
+    padding: 2px;
+}
+
+$highlight: #41e0fd;
+$default: #20232a;
+$light: #f8f8f8;
+$dark: #000;
+$light-1: darken($light, 10);
+$light-2: darken($light, 20);
+$dark-1: darken($light, 60);
+$dark-2: darken($light, 50);
+
+
+.entry-content {
+    min-height: 2000px;
+    border: solid 1rem #ff3;
+
+    display: grid;
+    grid-template-columns: 4fr 2fr; //this is where the magic happens - dive deeper when time permits
+    grid-auto-rows: 50px; /* for demo */
+    grid-gap: 10px;
+    grid-template-areas: "column-1 column-2";
+
+    .sidebar-right {
+        grid-area: column-2;
+    }
+
+    .wp-block-group {
+        grid-area: column-1;
+    }
+
+
+    aside {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        > ol,
+        > ul {
+
+
+            a {
+                text-decoration: none;
+                display: inline-block;
+
+                &:hover {
+                    color: $dark-1;
+                }
+            }
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ul li > ul {
+            padding-left: 10px;
+        }
+
+        &.sidebar-right {
+
+            position: -webkit-sticky;
+            position: sticky;
+            top: 80px;
+
+            color: $dark-1;
+
+            ul:first-child {
+                border-left: 1px solid $light-1;
+                padding-left: 15px;
+            }
+
+            a {
+                color: $dark-1;
+            }
+        }
+    }
+
 }

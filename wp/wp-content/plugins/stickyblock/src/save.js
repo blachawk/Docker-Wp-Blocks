@@ -23,10 +23,10 @@ export default function save() {
 			allowedBlocks: [ 'blachawk-blocks/sb-item' ],
 		}
 	);
+
 	return (
-		<section { ...combinedBlockProps }>
-			<h2>custom heading</h2>
-			{ children }
-		</section>
+		<aside className="sidebar-right">
+			<ul { ...combinedBlockProps }>{ children }</ul>
+		</aside>
 	);
 }

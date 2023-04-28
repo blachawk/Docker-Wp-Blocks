@@ -7,7 +7,7 @@ export default function Edit() {
 
 	return (
 		<>
-			<div { ...innerBlocksProps } />
+			<li { ...innerBlocksProps } />
 		</>
 	);
 }

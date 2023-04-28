@@ -4,8 +4,8 @@ export default function Save() {
 	const blockProps = useBlockProps.save( { className: 'custom-class-item' } );
 
 	return (
-		<div { ...blockProps }>
+		<li { ...blockProps }>
 			<InnerBlocks.Content />
-		</div>
+		</li>
 	);
 }

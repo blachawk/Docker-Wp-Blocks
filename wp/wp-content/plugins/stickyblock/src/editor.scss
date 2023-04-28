@@ -4,6 +4,26 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+$highlight: #41e0fd;
+$default: #20232a;
+$light: #f8f8f8;
+$dark: #000;
+$light-1: darken($light, 10);
+$light-2: darken($light, 20);
+$dark-1: darken($light, 60);
+$dark-2: darken($light, 50);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
 .wp-block-create-block-stickyblock {
-	border: 1px dotted #f00;
+    border: 1px dotted #f00;
 }

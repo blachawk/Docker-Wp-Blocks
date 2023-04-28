@@ -39,5 +39,9 @@ export default function Edit() {
 		allowedBlocks: [ 'blachawk-blocks/sb-item' ],
 		renderAppender: InnerBlocks.ButtonBlockAppender,
 	} );
-	return <section { ...combinedBlockProps } />;
+	return (
+		<aside className="sidebar-right">
+			<ul { ...combinedBlockProps } />
+		</aside>
+	);
 }
