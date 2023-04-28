@@ -6,7 +6,11 @@
 	"title": "uibp test01",
 	"category": "text",
 	"description": "The purpose of this plugin is to see if allowedBlocks truly works within useInnerBlocksProps, or not.",
-	"keywords": ["blachawk", "inner", "item"],
+	"keywords": [
+		"blachawk",
+		"inner",
+		"item"
+	],
 	"supports": {
 		"html": false
 	},

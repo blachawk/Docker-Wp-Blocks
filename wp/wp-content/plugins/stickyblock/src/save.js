@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -16,9 +16,17 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save() {
+	const blockProps = useBlockProps.save( { className: 'custom-class' } );
+	const { children, ...combinedBlockProps } = useInnerBlocksProps.save(
+		blockProps,
+		{
+			allowedBlocks: [ 'blachawk-blocks/sb-item' ],
+		}
+	);
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Stickyblock – hello from the saved content!' }
-		</p>
+		<section { ...combinedBlockProps }>
+			<h2>custom heading</h2>
+			{ children }
+		</section>
 	);
 }

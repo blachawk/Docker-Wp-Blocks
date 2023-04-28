@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 import { registerBlockType } from '@wordpress/blocks';
+import './sb-item';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -17,6 +18,7 @@ import './style.scss';
 /**
  * Internal dependencies
  */
+
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
@@ -27,6 +29,11 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
+	icon: {
+		src: 'building',
+		background: '#f03',
+		foreground: '#fff',
+	},
 	/**
 	 * @see ./edit.js
 	 */

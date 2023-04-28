@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+//import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InnerBlocks,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,9 +34,10 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Stickyblock – hello from the editor!', 'stickyblock' ) }
-		</p>
-	);
+	const blockProps = useBlockProps( { className: 'custom-class' } );
+	const combinedBlockProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: [ 'blachawk-blocks/sb-item' ],
+		renderAppender: InnerBlocks.ButtonBlockAppender,
+	} );
+	return <section { ...combinedBlockProps } />;
 }
