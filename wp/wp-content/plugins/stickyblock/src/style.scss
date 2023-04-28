@@ -27,6 +27,7 @@ $dark-2: darken($light, 50);
 
     display: grid;
     grid-template-columns: 4fr 2fr; //this is where the magic happens - dive deeper when time permits
+
     grid-auto-rows: 50px; /* for demo */
     grid-gap: 10px;
     grid-template-areas: "column-1 column-2";
@@ -72,12 +73,14 @@ $dark-2: darken($light, 50);
             position: -webkit-sticky;
             position: sticky;
             top: 80px;
+												justify-self: end;
 
             color: $dark-1;
 
             ul:first-child {
                 border-left: 1px solid $light-1;
                 padding-left: 15px;
+																margin-left:0;
             }
 
             a {
@@ -85,5 +88,4 @@ $dark-2: darken($light, 50);
             }
         }
     }
-
 }
