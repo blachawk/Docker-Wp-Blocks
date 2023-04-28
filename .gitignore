@@ -34,6 +34,11 @@
 !wp/wp-content/plugins/uibp01/*/*
 !wp/wp-content/plugins/uibp01/*/*/*
 
+!wp/wp-content/plugins/stickyblock/
+!wp/wp-content/plugins/stickyblock/*
+!wp/wp-content/plugins/stickyblock/*/*
+!wp/wp-content/plugins/stickyblock/*/*/*
+
 wp/wp-content/plugins/vanilla/package-lock.json
 wp/wp-content/plugins/vanilla/build
 wp/wp-content/plugins/vanilla/build/*
@@ -58,6 +63,11 @@ wp/wp-content/plugins/uibp01/package-lock.json
 wp/wp-content/plugins/uibp01/build
 wp/wp-content/plugins/uibp01/build/*
 wp/wp-content/plugins/uibp01/build/*/*
+
+wp/wp-content/plugins/stickyblock/package-lock.json
+wp/wp-content/plugins/stickyblock/build
+wp/wp-content/plugins/stickyblock/build/*
+wp/wp-content/plugins/stickyblock/build/*/*
 
 !wp/wp-content/themes/
 !wp/wp-content/themes/block-theme/
