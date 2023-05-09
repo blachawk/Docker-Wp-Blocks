@@ -6,7 +6,11 @@
 	"title": "Sticky Block",
 	"category": "text",
 	"description": "Lets stick a block to the side of the window.",
-	"keywords": [ "blachawk", "sticky", "item" ],
+	"keywords": [
+		"blachawk",
+		"sticky",
+		"item"
+	],
 	"supports": {
 		"html": false
 	},
