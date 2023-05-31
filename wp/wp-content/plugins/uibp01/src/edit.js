@@ -31,14 +31,14 @@ import './editor.scss';
  */
 
 export default function Edit() {
-	const blockProps = useBlockProps( { className: 'custom-class' } );
-	const combinedBlockProps = useInnerBlocksProps( blockProps, {
+	const blockProps = useBlockProps({ className: 'custom-class' });
+	const combinedBlockProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: [
 			'core/heading',
 			'core/paragraph',
 			'blachawk-blocks/uibp01-item',
 		],
-	} );
+	});
 
-	return <section { ...combinedBlockProps } />;
+	return <section {...combinedBlockProps} />;
 }

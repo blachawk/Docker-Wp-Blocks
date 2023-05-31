@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+//import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InnerBlocks,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -21,18 +25,24 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
-export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Media Gallery – hello from the editor!', 'mediagallery' ) }
-		</p>
-	);
+export default function Edit( { attributes } ) {
+	const blockProps = useBlockProps( { className: 'my-mg-block-group' } );
+
+	//SET FOR RENDER APPENDER
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		//allowedBlocks: [ 'blachawk-blocks/mg-block-item' ],
+		allowedBlocks: [ 'core/heading', 'core/paragraph' ],
+		renderAppender: InnerBlocks.ButtonBlockAppender,
+	} );
+
+	//PREVIEW POP-UP AREA
+	if ( attributes._cover ) {
+		return (
+			<div className="previewWindow">
+				<img src={ attributes._cover } alt="" />
+			</div>
+		);
+	}
+
+	return <div { ...innerBlocksProps }></div>;
 }

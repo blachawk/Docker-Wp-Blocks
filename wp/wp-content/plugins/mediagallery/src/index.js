@@ -17,6 +17,7 @@ import './style.scss';
 /**
  * Internal dependencies
  */
+
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
@@ -27,6 +28,11 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
+	icon: {
+		src: 'media-interactive',
+		background: '#6a5acd',
+		foreground: '#fff',
+	},
 	/**
 	 * @see ./edit.js
 	 */

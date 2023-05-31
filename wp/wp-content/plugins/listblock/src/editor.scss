@@ -13,42 +13,42 @@
 }
 
 //PLAYING AROUND WITH THE PREVIEW POP-UP WINDOW
+/*
+.block-editor-inserter__preview-content {
+    border: solid 1rem #fdc4fd;
 
-// .block-editor-inserter__preview-content {
-//     border: solid 1rem #fdc4fd;
+    iframe {
+        border: solid 1rem #09026e;
+    }
+}
 
-//     iframe {
-//         border: solid 1rem #09026e;
-//     }
-// }
+.block-editor-inserter__preview-container {
+    border: solid 1rem #fefb39;
 
-// .block-editor-inserter__preview-container {
-//     border: solid 1rem #fefb39;
+    .block-editor-block-icon {
+        border: solid 1rem #9b9b9b;
+    }
 
-//     .block-editor-block-icon {
-//         border: solid 1rem #9b9b9b;
-//     }
+    .block-editor-block-card {
+        padding: 0;
+        border: solid 1rem #e60f00;
+    }
 
-//     .block-editor-block-card {
-//         padding: 0;
-//         border: solid 1rem #e60f00;
-//     }
+    .block-editor-block-card__title {
+        border: solid 1rem  #19d803;
+    }
 
-//     .block-editor-block-card__title {
-//         border: solid 1rem  #19d803;
-//     }
+}
 
-// }
+.block-editor-inserter__preview {
+    border: solid 1rem #c0c1b3;
+}
 
-
-// .block-editor-inserter__preview {
-//     border: solid 1rem #c0c1b3;
-// }
-
+*/
 .previewWindow {
-    border: solid 1rem #19d803;
+
     position: relative;
-    top: -2rem; //HACK TO MAKE THIS FLUSH
-    left: -8rem; //HACK TO MAKE THIS FLUSH
+    top: -2rem; /*HACK TO MAKE THIS FLUSH*/
+    left: -8rem; /*HACK TO MAKE THIS FLUSH*/
     margin-bottom: -3.5rem;
 }

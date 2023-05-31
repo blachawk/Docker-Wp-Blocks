@@ -4,14 +4,37 @@
 	"name": "create-block/mediagallery",
 	"version": "0.1.0",
 	"title": "Media Gallery",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example static block scaffolded with Create Block tool.",
+	"category": "text",
+	"icon": "media-interactive",
+	"description": "A collection of media assets to support a pop-up gallery",
+	"keywords": [
+		"ffa",
+		"agexplorer",
+		"media",
+		"video",
+		"gallery",
+		"item"
+	],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "mediagallery",
+	"textdomain": "mg-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"attributes": {
+		"listOrdered": {
+			"type": "boolean",
+			"default": false
+		},
+		"_cover": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"_cover": "https://placehold.co/550x550/000000/FFF"
+		}
+	}
 }

@@ -16,21 +16,21 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save() {
-	const blockProps = useBlockProps.save( { className: 'custom-class' } );
+	const blockProps = useBlockProps.save({ className: 'custom-class' });
 	const { children, ...combinedBlockProps } = useInnerBlocksProps.save(
 		blockProps,
 		{
-			allowedBlocks: [ 'core/heading' ],
+			allowedBlocks: ['core/heading'],
 		}
 	);
 
 	return (
-		<section { ...combinedBlockProps }>
+		<section {...combinedBlockProps}>
 			<h2>
 				This way we can even have additional hardcoded elements at the
 				same level as out inner blocks
 			</h2>
-			{ children }
+			{children}
 		</section>
 	);
 }
