@@ -22,7 +22,13 @@ import { PanelBody, RangeControl } from '@wordpress/components';
 
 import './editor.scss';
 
-export default function Edit( { attributes } ) {
+export default function Edit( { attributes, setAttributes } ) {
+	const { columns } = attributes;
+
+	const onChangeColumns = ( newColumns ) => {
+		setAttributes( { columns: newColumns } );
+	};
+
 	const blockProps = useBlockProps( {
 		//	className: 'my-mg-block-group'
 	} );
@@ -42,5 +48,20 @@ export default function Edit( { attributes } ) {
 		);
 	}
 
-	return <div { ...innerBlocksProps }></div>;
+	return (
+		<>
+			<InspectorControls>
+				<PanelBody>
+					<RangeControl
+						label={ __( 'Columns', 'mg-block' ) }
+						min={ 1 }
+						max={ 6 }
+						onChange={ onChangeColumns }
+						value={ columns }
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div { ...innerBlocksProps }></div>
+		</>
+	);
 }

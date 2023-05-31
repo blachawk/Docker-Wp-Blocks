@@ -1,8 +1,4 @@
-import {
-	useBlockProps,
-	useInnerBlocksProps,
-	RichText,
-} from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { attributes, setAttributes } ) {
@@ -20,17 +16,9 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { content: newContent } );
 	};
 
-	const blockProps = useBlockProps( {
-		//className: 'custom-class-item'
-	} );
-	const innerBlocksProps = useInnerBlocksProps( blockProps, {
-		//		allowedBlocks: [ 'core/heading', 'core/paragraph' ],
-		//allowedBlocks: [ 'core/heading', 'core/paragraph', 'core/image' ],
-	} );
-
 	return (
 		<>
-			<div { ...innerBlocksProps }>
+			<div { ...useBlockProps() }>
 				<RichText
 					placeholder={ __( 'Media Name', 'mg-block-item' ) }
 					tagName="h2"
