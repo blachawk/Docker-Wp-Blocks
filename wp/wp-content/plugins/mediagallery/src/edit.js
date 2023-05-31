@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-//import { __ } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -15,18 +15,17 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	useInnerBlocksProps,
+	InspectorControls,
 } from '@wordpress/block-editor';
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
+import { PanelBody, RangeControl } from '@wordpress/components';
+
 import './editor.scss';
 
 export default function Edit( { attributes } ) {
-	const blockProps = useBlockProps( { className: 'my-mg-block-group' } );
+	const blockProps = useBlockProps( {
+		//	className: 'my-mg-block-group'
+	} );
 
 	//SET FOR RENDER APPENDER
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {

@@ -22,13 +22,13 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"listOrdered": {
-			"type": "boolean",
-			"default": false
-		},
 		"_cover": {
 			"type": "string",
 			"default": ""
+		},
+		"columns": {
+			"type": "number",
+			"default": 2
 		}
 	},
 	"example": {
