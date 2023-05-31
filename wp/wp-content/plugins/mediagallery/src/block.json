@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Media Gallery",
 	"category": "text",
-	"icon": "media-interactive",
 	"description": "A collection of media assets to support a pop-up gallery",
 	"keywords": [
 		"ffa",
