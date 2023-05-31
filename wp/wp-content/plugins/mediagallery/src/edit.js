@@ -30,8 +30,8 @@ export default function Edit( { attributes } ) {
 
 	//SET FOR RENDER APPENDER
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
-		allowedBlocks: [ 'blachawk-blocks/mediagallery-item' ],
-		//renderAppender: InnerBlocks.ButtonBlockAppender,
+		allowedBlocks: [ 'mediagallery/item' ],
+		renderAppender: InnerBlocks.ButtonBlockAppender,
 	} );
 
 	//PREVIEW POP-UP AREA

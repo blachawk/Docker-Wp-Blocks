@@ -16,13 +16,11 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save() {
-	const blockProps = useBlockProps.save( { className: 'custom-class' } );
-	const { children, ...combinedBlockProps } = useInnerBlocksProps.save(
-		blockProps,
-		{
-			allowedBlocks: [ 'core/heading' ],
-		}
-	);
+	const blockProps = useBlockProps.save( {
+		//className: 'custom-parent-class-save',
+	} );
+	const { children, ...combinedBlockProps } =
+		useInnerBlocksProps.save( blockProps );
 
 	return <section { ...combinedBlockProps }>{ children }</section>;
 }
