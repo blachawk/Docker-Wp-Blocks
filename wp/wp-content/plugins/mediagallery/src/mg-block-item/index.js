@@ -10,7 +10,11 @@ registerBlockType( 'mediagallery/item', {
 		'mg-block'
 	),
 	category: 'text',
-	icon: 'minus',
+	icon: {
+		src: 'controls-play',
+		background: '#dd3c27',
+		foreground: '#fff',
+	},
 	parent: [ 'mg-block/mediagallery' ],
 	supports: {
 		reusable: false,

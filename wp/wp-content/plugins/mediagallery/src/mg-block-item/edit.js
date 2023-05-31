@@ -57,7 +57,6 @@ export default function Edit( { attributes, setAttributes } ) {
 					className="vid-content"
 					onChange={ onChangeContent }
 					value={ content }
-					allowedFormats={ [] }
 				/>
 			</div>
 		</>
