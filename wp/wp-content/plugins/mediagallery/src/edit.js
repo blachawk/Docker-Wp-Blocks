@@ -30,7 +30,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	};
 
 	const blockProps = useBlockProps( {
-		//	className: 'my-mg-block-group'
+		className: `has-${ columns }-columns`,
 	} );
 
 	//SET FOR RENDER APPENDER
