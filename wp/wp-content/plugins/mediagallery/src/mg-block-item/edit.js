@@ -1,4 +1,4 @@
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useState, useRef } from '@wordpress/element';
 import {
 	useBlockProps,
 	RichText,
@@ -8,10 +8,13 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { isBlobURL, revokeBlobURL } from '@wordpress/blob';
-import { Spinner, withNotices } from '@wordpress/components';
+import { Spinner, withNotices, ToolbarButton } from '@wordpress/components';
 
 function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 	const { name, title, content, url, alt, id } = attributes;
+
+	//focusing on next input after modifying image
+	const titleRef = useRef();
 
 	//memory optimization
 	const [ blobURL, setBlobURL ] = useState();
@@ -75,22 +78,43 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 		}
 	}, [ url ] );
 
+	const removeImage = () => {
+		setAttributes( {
+			url: undefined,
+			alt: '',
+			id: undefined,
+		} );
+	};
+
+	//focusing on next input after modifying image
+	useEffect( () => {
+		titleRef.current.focus();
+	}, [ url ] );
+
 	return (
 		<>
-			<BlockControls group="inline">
-				<div className={ `mg-block-item-img-replacer` }>
-					<MediaReplaceFlow
-						name={ __( 'Replace Image', 'mg-block-item' ) }
-						onSelect={ onSelectImage }
-						onSelectURL={ onSelectImageURL }
-						onError={ onUploadError }
-						accept="image/*"
-						allowedTypes={ [ 'image' ] }
-						mediaId={ id }
-						mediaURL={ url }
-					/>
-				</div>
-			</BlockControls>
+			{ url && (
+				<BlockControls group="inline">
+					<div className={ `mg-block-item-img-replacer` }>
+						<MediaReplaceFlow
+							name={ __( 'Replace Image', 'mg-block-item' ) }
+							onSelect={ onSelectImage }
+							onSelectURL={ onSelectImageURL }
+							onError={ onUploadError }
+							accept="image/*"
+							allowedTypes={ [ 'image' ] }
+							mediaId={ id }
+							mediaURL={ url }
+						/>
+					</div>
+
+					<div className={ `mg-block-item-img-remover` }>
+						<ToolbarButton onClick={ removeImage }>
+							{ __( 'Remove Image', 'mg-block-item' ) }
+						</ToolbarButton>
+					</div>
+				</BlockControls>
+			) }
 
 			<div { ...useBlockProps() }>
 				{ url && (
@@ -117,6 +141,7 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 				/>
 
 				<RichText
+					ref={ titleRef }
 					placeholder={ __( 'Media Name', 'mg-block-item' ) }
 					tagName="h2"
 					className="vid-name"
