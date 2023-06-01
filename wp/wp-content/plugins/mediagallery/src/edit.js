@@ -36,6 +36,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	//SET FOR RENDER APPENDER
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		allowedBlocks: [ 'mediagallery/item' ],
+		orientation: 'horizontal',
 		renderAppender: InnerBlocks.ButtonBlockAppender,
 	} );
 
