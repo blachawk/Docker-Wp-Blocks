@@ -5,9 +5,9 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { isBlobURL } from '@wordpress/blob';
-import { Spinner } from '@wordpress/components';
+import { Spinner, withNotices } from '@wordpress/components';
 
-export default function Edit( { attributes, setAttributes } ) {
+function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 	const { name, title, content, url, alt } = attributes;
 
 	const onChangeName = ( newName ) => {
@@ -44,6 +44,11 @@ export default function Edit( { attributes, setAttributes } ) {
 		} );
 	};
 
+	const onUploadError = ( message ) => {
+		noticeOperations.removeAllNotices();
+		noticeOperations.createErrorNotice( message );
+	};
+
 	return (
 		<>
 			<div { ...useBlockProps() }>
@@ -53,7 +58,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							isBlobURL( url ) ? ' is-loading' : ''
 						}` }
 					>
-						<img src={ url } alt={ alt } />
+						<a className="vid-img">
+							<img src={ url } alt={ alt } />
+						</a>
 						{ isBlobURL( url ) && <Spinner /> }
 					</div>
 				) }
@@ -61,10 +68,11 @@ export default function Edit( { attributes, setAttributes } ) {
 					icon="cover-image"
 					onSelect={ onSelectImage }
 					onSelectURL={ onSelectImageURL }
-					onError={ ( err ) => console.log( err ) }
-					accept="image/*"
+					onError={ onUploadError }
+					// accept="image/*"
 					allowedTypes={ [ 'image' ] }
 					disableMediaButtons={ url }
+					notices={ noticeUI }
 				/>
 
 				<RichText
@@ -98,3 +106,5 @@ export default function Edit( { attributes, setAttributes } ) {
 		</>
 	);
 }
+
+export default withNotices( Edit );

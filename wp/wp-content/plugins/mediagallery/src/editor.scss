@@ -9,7 +9,7 @@
     @for $i from 1 through 6 {
         &.has-#{$i}-columns {
 
-            [data-type="mediagallery/item"]  {
+            [data-type="mediagallery/item"] {
                 width: calc(100% / #{$i} - 20px);
             }
         }
@@ -26,17 +26,18 @@
             margin: 10px 0;
 
             .wp-block-mediagallery-item-img {
-                position:relative;
+                position: relative;
 
                 &.is-loading img {
-                    opacity:0.3;
+                    opacity: 0.3;
                 }
+
                 .components-spinner {
-                    position:absolute;
-                    left:0;
+                    position: absolute;
+                    left: 0;
                     right: 0;
-                    top:0;
-                    bottom:0;
+                    top: 0;
+                    bottom: 0;
                     margin: auto;
                 }
             }

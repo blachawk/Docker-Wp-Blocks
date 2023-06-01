@@ -1,13 +1,22 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save( { attributes } ) {
-	const { name, title, content } = attributes;
+	const { name, title, content, url, alt, id } = attributes;
 	const blockProps = useBlockProps.save( {
 		//className: 'custom-class-item'
 	} );
 
 	return (
 		<div { ...blockProps }>
+			{ url && (
+				<a className="vid-img">
+					<img
+						src={ url }
+						alt={ alt }
+						className={ id ? `wp-image-${ id }` : null }
+					/>
+				</a>
+			) }
 			<RichText.Content
 				tagName="h2"
 				className="vid-name"
