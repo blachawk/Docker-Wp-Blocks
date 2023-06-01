@@ -12,8 +12,7 @@ registerBlockType( 'mediagallery/item', {
 	category: 'text',
 	icon: {
 		src: 'controls-play',
-		background: '#dd3c27',
-		foreground: '#fff',
+		foreground: '#6a5acd',
 	},
 	parent: [ 'mg-block/mediagallery' ],
 	supports: {
