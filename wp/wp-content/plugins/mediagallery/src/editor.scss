@@ -72,8 +72,43 @@
                 min-height: 4rem;
             }
 
-        }
+            .wp-block-mediagallery-item-media-links {
+                ul {
+                    list-style:none;
+                    padding:0;
+                    margin:15px -5px 0;
+                    text-align:center;
+                    li {
+                        display:inline-block;
+                        margin:5px;
+                        span.dashicon {
+                            color:#6a5acd;
+                            font-size:1.75rem;
+                        }
 
+                        &.wp-block-mediagallery-item-media-icons {
+                            button {
+                              background:none;
+                              border:none;
+                              padding:0;
+                              margin:0;
+                              outline:1px dashed;
+                              padding:0.35rem;
+
+                              .dashicons-plus {
+                                &::before {
+                                    position:relative;
+                                    right:0.4rem;
+                                    bottom:0.2rem;
+                                }
+                              }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
 

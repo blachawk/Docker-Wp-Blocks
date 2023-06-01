@@ -8,10 +8,22 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { isBlobURL, revokeBlobURL } from '@wordpress/blob';
-import { Spinner, withNotices, ToolbarButton } from '@wordpress/components';
+import {
+	Spinner,
+	withNotices,
+	ToolbarButton,
+	Icon,
+	Tooltip,
+} from '@wordpress/components';
 
-function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
-	const { name, title, content, url, alt, id } = attributes;
+function Edit( {
+	attributes,
+	setAttributes,
+	noticeOperations,
+	noticeUI,
+	isSelected,
+} ) {
+	const { name, title, content, url, alt, id, mediaLinks } = attributes;
 
 	//focusing on next input after modifying image
 	const titleRef = useRef();
@@ -168,6 +180,38 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 					onChange={ onChangeContent }
 					value={ content }
 				/>
+
+				<div className="wp-block-mediagallery-item-media-links">
+					<ul>
+						{ mediaLinks.map( ( item, index ) => {
+							return (
+								<li key={ index }>
+									<Icon icon={ item.icon } />
+								</li>
+							);
+						} ) }
+
+						{ isSelected && (
+							<li className="wp-block-mediagallery-item-media-icons">
+								<Tooltip
+									text={ __(
+										'Add Media Link',
+										'mg-block-item'
+									) }
+								>
+									<button
+										aria-label={ __(
+											'Add Media Link',
+											'mg-block-item'
+										) }
+									>
+										<Icon icon="plus" />
+									</button>
+								</Tooltip>
+							</li>
+						) }
+					</ul>
+				</div>
 			</div>
 		</>
 	);
