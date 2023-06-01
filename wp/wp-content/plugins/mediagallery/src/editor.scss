@@ -76,3 +76,19 @@
 
     }
 }
+
+/* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
+.mg-block-item-img-replacer button {
+    font-size: 0 !important;
+
+    &::after {
+        font-family: dashicons;
+        content: "\f515";
+        color: #6a5acd;
+        -webkit-font-smoothing: antialiased;
+        font-size: 1.25rem;
+        position: relative;
+        top: 0.8rem;
+        height: 50px;
+    }
+}

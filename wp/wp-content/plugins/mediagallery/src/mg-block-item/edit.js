@@ -1,14 +1,20 @@
+import { useEffect, useState } from '@wordpress/element';
 import {
 	useBlockProps,
 	RichText,
 	MediaPlaceholder,
+	BlockControls,
+	MediaReplaceFlow,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import { isBlobURL } from '@wordpress/blob';
+import { isBlobURL, revokeBlobURL } from '@wordpress/blob';
 import { Spinner, withNotices } from '@wordpress/components';
 
 function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
-	const { name, title, content, url, alt } = attributes;
+	const { name, title, content, url, alt, id } = attributes;
+
+	//memory optimization
+	const [ blobURL, setBlobURL ] = useState();
 
 	const onChangeName = ( newName ) => {
 		setAttributes( { name: newName } );
@@ -49,8 +55,43 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 		noticeOperations.createErrorNotice( message );
 	};
 
+	//look out for cases where user uploads image but shuts down window at same time...
+	useEffect( () => {
+		if ( ! id && isBlobURL( url ) ) {
+			setAttributes( {
+				url: undefined,
+				alt: '',
+			} );
+		}
+	}, [] );
+
+	//memory optimization
+	useEffect( () => {
+		if ( isBlobURL( url ) ) {
+			setBlobURL( url );
+		} else {
+			revokeBlobURL( blobURL );
+			setBlobURL();
+		}
+	}, [ url ] );
+
 	return (
 		<>
+			<BlockControls group="inline">
+				<div className={ `mg-block-item-img-replacer` }>
+					<MediaReplaceFlow
+						name={ __( 'Replace Image', 'mg-block-item' ) }
+						onSelect={ onSelectImage }
+						onSelectURL={ onSelectImageURL }
+						onError={ onUploadError }
+						accept="image/*"
+						allowedTypes={ [ 'image' ] }
+						mediaId={ id }
+						mediaURL={ url }
+					/>
+				</div>
+			</BlockControls>
+
 			<div { ...useBlockProps() }>
 				{ url && (
 					<div
