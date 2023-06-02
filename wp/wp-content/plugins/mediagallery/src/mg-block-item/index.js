@@ -69,6 +69,19 @@ registerBlockType( 'mediagallery/item', {
 					icon: 'media-video',
 				},
 			],
+			source: 'query',
+			selector: '.wp-block-mediagallery-item-media-links ul li',
+			query: {
+				icon: {
+					source: 'attribute',
+					attribute: 'data-icon',
+				},
+				link: {
+					source: 'attribute',
+					selector: 'a',
+					attribute: 'href',
+				},
+			},
 		},
 	},
 	edit: Edit,
