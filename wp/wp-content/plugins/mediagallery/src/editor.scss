@@ -1,6 +1,5 @@
 
 
-
 /* COLUMN DECOR */
 .wp-block-create-block-mediagallery {
     display: flex;
@@ -76,17 +75,19 @@
             }
 
             .wp-block-mediagallery-item-media-links {
+
                 ul {
-                    list-style:none;
-                    padding:0;
-                    margin:15px -5px 0;
-                    text-align:center;
+                    list-style: none;
+                    padding: 0;
+                    margin: 15px -5px 0;
+                    text-align: center;
+
                     li {
-                        display:inline-block;
+                        display: inline-block;
 
                         span.dashicon {
-                            color:#6a5acd;
-                            font-size:1.3rem;
+                            color: #6a5acd;
+                            font-size: 1.3rem;
                         }
 
 
@@ -95,22 +96,24 @@
                         }
 
                         button {
-                            background:none;
-                            border:none;
-                            padding:0.35rem;
+                            background: none;
+                            border: none;
+                            padding: 0.35rem;
                         }
 
                         &.wp-block-mediagallery-item-media-icons {
-                            button {
-                              outline:1px dashed;
 
-                              .dashicons-plus {
-                                &::before {
-                                    position:relative;
-                                    right:0;
-                                    bottom:0;
+                            button {
+                                outline: 1px dashed;
+
+                                .dashicons-plus {
+
+                                    &::before {
+                                        position: relative;
+                                        right: 0;
+                                        bottom: 0;
+                                    }
                                 }
-                              }
                             }
                         }
                     }
@@ -122,8 +125,8 @@
 
     /*CENTER THE BLOCKS FOR WIDER SCREENS*/
     .block-editor-block-list__block.wp-block {
-        margin: 0 auto
-      }
+        margin: 0 auto;
+    }
 
 }
 

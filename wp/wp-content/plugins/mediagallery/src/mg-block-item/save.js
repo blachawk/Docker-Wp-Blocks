@@ -9,7 +9,7 @@ export default function Save( { attributes } ) {
 	return (
 		<div { ...blockProps }>
 			{ url && (
-				<a className="vid-img">
+				<a className={ `vid-img` }>
 					<img
 						src={ url }
 						alt={ alt }
@@ -17,21 +17,30 @@ export default function Save( { attributes } ) {
 					/>
 				</a>
 			) }
-			<RichText.Content
-				tagName="h2"
-				className="vid-name"
-				value={ name }
-			/>
-			<RichText.Content
-				tagName="div"
-				className="vid-title"
-				value={ title }
-			/>
-			<RichText.Content
-				tagName="div"
-				className="vid-content"
-				value={ content }
-			/>
+
+			{ name && (
+				<RichText.Content
+					tagName="h2"
+					className="vid-name"
+					value={ name }
+				/>
+			) }
+
+			{ title && (
+				<RichText.Content
+					tagName="div"
+					className="vid-title"
+					value={ title }
+				/>
+			) }
+
+			{ content && (
+				<RichText.Content
+					tagName="div"
+					className="vid-content"
+					value={ content }
+				/>
+			) }
 		</div>
 	);
 }

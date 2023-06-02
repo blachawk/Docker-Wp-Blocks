@@ -23,6 +23,12 @@
         min-width: 285px;
         margin: 10px auto;
 
+
+        .vid-img {
+            display: flex;
+            justify-content: center;
+        }
+
         .vid-name {
             text-align: center;
             color: #000;
