@@ -162,9 +162,9 @@ function Edit( {
 							isBlobURL( url ) ? ' is-loading' : ''
 						}` }
 					>
-						<a className="vid-img">
+						<button className="vid-img">
 							<img src={ url } alt={ alt } />
-						</a>
+						</button>
 						{ isBlobURL( url ) && <Spinner /> }
 					</div>
 				) }

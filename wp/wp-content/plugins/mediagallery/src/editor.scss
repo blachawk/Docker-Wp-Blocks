@@ -9,7 +9,7 @@
     margin-right: -10px;
 
     @for $i from 1 through 6 {
-        &.has-#{$i}-columns {
+        &.has-#{$i}-columns { /* stylelint-disable-line */
 
             [data-type="mediagallery/item"] {
                 width: calc(100% / #{$i} - 20px);
@@ -42,6 +42,14 @@
                     bottom: 0;
                     margin: auto;
                 }
+            }
+
+
+            .vid-img {
+                background: transparent;
+                border: none;
+                display: flex;
+                justify-content: center;
             }
 
             .vid-name {
@@ -124,40 +132,51 @@
     }
 
     /*CENTER THE BLOCKS FOR WIDER SCREENS*/
-    .block-editor-block-list__block.wp-block {
+    .block-editor-block-list__block.wp-block {  /* stylelint-disable-line */
         margin: 0 auto;
     }
 
-}
+    /* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
+    /* stylelint-disable */
+    .mg-block-item-img-replacer {
 
-/* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
-.mg-block-item-img-replacer button {
-    font-size: 0 !important;
+        &button {
+            font-size: 0 !important;
 
-    &::after {
-        font-family: dashicons;
-        content: "\f515";
-        color: #6a5acd;
-        -webkit-font-smoothing: antialiased;
-        font-size: 1.25rem;
-        position: relative;
-        top: 0.8rem;
-        height: 50px;
+            &::after {
+                font-family: dashicons;
+                content: "\f515";
+                color: #6a5acd;
+                -webkit-font-smoothing: antialiased;
+                font-size: 1.25rem;
+                position: relative;
+                top: 0.8rem;
+                height: 50px;
+            }
+        }
+
     }
-}
 
-/* REMOVE IMAGE ICON INSTEAD OF TEXT, SETUP */
-.mg-block-item-img-remover button {
-    font-size: 0 !important;
+    /* REMOVE IMAGE ICON INSTEAD OF TEXT, SETUP */
+    .mg-block-item-img-remover {
 
-    &::after {
-        font-family: dashicons;
-        content: "\f182";
-        color: #6a5acd;
-        -webkit-font-smoothing: antialiased;
-        font-size: 1.25rem;
-        position: relative;
-        top: 0.8rem;
-        height: 50px;
+        button {
+            font-size: 0 !important;
+
+            &::after {
+                font-family: dashicons;
+                content: "\f182";
+                color: #6a5acd;
+                -webkit-font-smoothing: antialiased;
+                font-size: 1.25rem;
+                position: relative;
+                top: 0.8rem;
+                height: 50px;
+            }
+
+        }
+
     }
+    /* stylelint-enable */
+
 }

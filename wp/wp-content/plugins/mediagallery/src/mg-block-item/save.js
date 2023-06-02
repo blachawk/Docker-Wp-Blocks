@@ -1,7 +1,8 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { Icon } from '@wordpress/components';
 
 export default function Save( { attributes } ) {
-	const { name, title, content, url, alt, id } = attributes;
+	const { name, title, content, url, alt, id, mediaLinks } = attributes;
 	const blockProps = useBlockProps.save( {
 		//className: 'custom-class-item'
 	} );
@@ -9,13 +10,13 @@ export default function Save( { attributes } ) {
 	return (
 		<div { ...blockProps }>
 			{ url && (
-				<a className={ `vid-img` }>
+				<button className={ `vid-img` }>
 					<img
 						src={ url }
 						alt={ alt }
 						className={ id ? `wp-image-${ id }` : null }
 					/>
-				</a>
+				</button>
 			) }
 
 			{ name && (
@@ -40,6 +41,21 @@ export default function Save( { attributes } ) {
 					className="vid-content"
 					value={ content }
 				/>
+			) }
+			{ mediaLinks.length > 0 && (
+				<div className="wp-block-mediagallery-item-media-links">
+					<ul>
+						{ mediaLinks.map( ( item, index ) => {
+							return (
+								<li key={ index }>
+									<a href={ item.link }>
+										<Icon icon={ item.icon } />
+									</a>
+								</li>
+							);
+						} ) }
+					</ul>
+				</div>
 			) }
 		</div>
 	);
