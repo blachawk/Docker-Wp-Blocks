@@ -16,6 +16,8 @@ import {
 	Tooltip,
 } from '@wordpress/components';
 
+import { usePrevious } from '@wordpress/compose';
+
 function Edit( {
 	attributes,
 	setAttributes,
@@ -24,6 +26,12 @@ function Edit( {
 	isSelected,
 } ) {
 	const { name, title, content, url, alt, id, mediaLinks } = attributes;
+
+	//clear state of previous selected media link icon
+	const prevIsSelected = usePrevious( isSelected );
+
+	//state for clickable media link icons
+	const [ selectedLink, setSelectedLink ] = useState();
 
 	//focusing on next input after modifying image
 	const titleRef = useRef();
@@ -98,10 +106,24 @@ function Edit( {
 		} );
 	};
 
+	const addNewMediaItem = () => {
+		setAttributes( {
+			mediaLinks: [ ...mediaLinks, { icon: 'wordpress', link: '' } ],
+		} );
+		setSelectedLink( mediaLinks.length );
+	};
+
 	//focusing on next input after modifying image
 	useEffect( () => {
 		titleRef.current.focus();
 	}, [ url ] );
+
+	//clear state of previous selected media link icon
+	useEffect( () => {
+		if ( prevIsSelected && ! isSelected ) {
+			setSelectedLink();
+		}
+	}, [ isSelected, prevIsSelected ] );
 
 	return (
 		<>
@@ -121,9 +143,14 @@ function Edit( {
 					</div>
 
 					<div className={ `mg-block-item-img-remover` }>
-						<ToolbarButton onClick={ removeImage }>
-							{ __( 'Remove Image', 'mg-block-item' ) }
-						</ToolbarButton>
+						<Tooltip text={ __( 'Remove Image', 'mg-block-item' ) }>
+							<ToolbarButton
+								label="Remove Image"
+								onClick={ removeImage }
+							>
+								{ __( 'Remove Image', 'mg-block-item' ) }
+							</ToolbarButton>
+						</Tooltip>
 					</div>
 				</BlockControls>
 			) }
@@ -185,8 +212,32 @@ function Edit( {
 					<ul>
 						{ mediaLinks.map( ( item, index ) => {
 							return (
-								<li key={ index }>
-									<Icon icon={ item.icon } />
+								<li
+									key={ index }
+									className={
+										selectedLink === index
+											? `is-selected m${ index }`
+											: null
+									}
+								>
+									<Tooltip
+										text={ __(
+											'Edit Media Link',
+											'mg-block-item'
+										) }
+									>
+										<button
+											aria-label={ __(
+												'Edit Media Link',
+												'mg-block-item'
+											) }
+											onClick={ () =>
+												setSelectedLink( index )
+											}
+										>
+											<Icon icon={ item.icon } />
+										</button>
+									</Tooltip>
 								</li>
 							);
 						} ) }
@@ -204,6 +255,7 @@ function Edit( {
 											'Add Media Link',
 											'mg-block-item'
 										) }
+										onClick={ addNewMediaItem }
 									>
 										<Icon icon="plus" />
 									</button>

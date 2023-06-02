@@ -1,3 +1,6 @@
+
+
+
 /* COLUMN DECOR */
 .wp-block-create-block-mediagallery {
     display: flex;
@@ -80,26 +83,32 @@
                     text-align:center;
                     li {
                         display:inline-block;
-                        margin:5px;
+
                         span.dashicon {
                             color:#6a5acd;
-                            font-size:1.75rem;
+                            font-size:1.3rem;
+                        }
+
+
+                        &.is-selected {
+                            outline: 2px solid rgb(208, 40, 227);
+                        }
+
+                        button {
+                            background:none;
+                            border:none;
+                            padding:0.35rem;
                         }
 
                         &.wp-block-mediagallery-item-media-icons {
                             button {
-                              background:none;
-                              border:none;
-                              padding:0;
-                              margin:0;
                               outline:1px dashed;
-                              padding:0.35rem;
 
                               .dashicons-plus {
                                 &::before {
                                     position:relative;
-                                    right:0.4rem;
-                                    bottom:0.2rem;
+                                    right:0;
+                                    bottom:0;
                                 }
                               }
                             }
@@ -110,6 +119,12 @@
             }
         }
     }
+
+    /*CENTER THE BLOCKS FOR WIDER SCREENS*/
+    .block-editor-block-list__block.wp-block {
+        margin: 0 auto
+      }
+
 }
 
 /* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
