@@ -17,6 +17,7 @@ import {
 } from '@wordpress/components';
 
 import { usePrevious } from '@wordpress/compose';
+import { TextControl, Button } from '@wordpress/components';
 
 function Edit( {
 	attributes,
@@ -264,6 +265,18 @@ function Edit( {
 						) }
 					</ul>
 				</div>
+
+				{ selectedLink !== undefined && (
+					<div
+						className={ `wp-block-mediagallery-item-media-link-form` }
+					>
+						<TextControl label={ __( 'Icon', 'mg-block-item' ) } />
+						<TextControl label={ __( 'URL', 'mg-block-item' ) } />
+						<Button>
+							{ __( 'Remove link', 'mg-block-item' ) }
+						</Button>
+					</div>
+				) }
 			</div>
 		</>
 	);
