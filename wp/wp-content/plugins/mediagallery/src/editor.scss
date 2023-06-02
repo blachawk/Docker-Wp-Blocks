@@ -135,12 +135,14 @@
     .block-editor-block-list__block.wp-block {  /* stylelint-disable-line */
         margin: 0 auto;
     }
+}
 
-    /* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
+
+   /* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
     /* stylelint-disable */
     .mg-block-item-img-replacer {
 
-        &button {
+         button {
             font-size: 0 !important;
 
             &::after {
@@ -154,7 +156,6 @@
                 height: 50px;
             }
         }
-
     }
 
     /* REMOVE IMAGE ICON INSTEAD OF TEXT, SETUP */
@@ -173,10 +174,6 @@
                 top: 0.8rem;
                 height: 50px;
             }
-
         }
-
     }
     /* stylelint-enable */
-
-}
