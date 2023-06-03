@@ -12,7 +12,7 @@
         &.has-#{$i}-columns { /* stylelint-disable-line */
 
             [data-type="mediagallery/item"] {
-                width: calc(100% / #{$i} - 20px);
+                width: calc(100% / #{$i});
             }
         }
     }
