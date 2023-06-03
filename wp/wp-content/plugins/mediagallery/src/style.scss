@@ -14,7 +14,7 @@
             .wp-block-mediagallery-item {
 
                 @media (min-width: 500px) {
-                width: calc(100% / #{$i} - 20px);
+                    width: calc(100% / #{$i} - 20px);
                 }
 
             }
@@ -22,8 +22,8 @@
     }
 
     .wp-block-mediagallery-item {
-        display:flex;
-        flex-direction:column;
+        display: flex;
+        flex-direction: column;
 
         max-width: 900px;
         min-width: 285px;

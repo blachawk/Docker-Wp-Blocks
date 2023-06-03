@@ -9,7 +9,9 @@
     margin-right: -10px;
 
     @for $i from 1 through 6 {
-        &.has-#{$i}-columns { /* stylelint-disable-line */
+
+        /* stylelint-disable-next-line CssSyntaxError */
+        &.has-#{$i}-columns {
 
             [data-type="mediagallery/item"] {
                 width: calc(100% / #{$i});
@@ -131,6 +133,7 @@
 
 
             .wp-block-mediagallery-item-media-link-form {
+
                 /*look for a nice form styling process here */
             }
         }
@@ -142,9 +145,8 @@
     }
 }
 
-
-   /* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
-    /* stylelint-disable */
+     /* stylelint-disable */
+     /* REPLACE IMAGE ICON INSTEAD OF TEXT, SETUP */
     .mg-block-item-img-replacer {
 
          button {
