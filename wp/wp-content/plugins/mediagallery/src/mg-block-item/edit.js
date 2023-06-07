@@ -197,7 +197,7 @@ function Edit( {
 					className="vid-title"
 					onChange={ onChangeTitle }
 					value={ title }
-					allowedFormats={ [ 'core/bold' ] }
+					allowedFormats={ [ 'core/bold', 'core/link' ] }
 				/>
 
 				<RichText
