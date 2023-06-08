@@ -14,10 +14,11 @@ import {
 	ToolbarButton,
 	Icon,
 	Tooltip,
+	TextControl,
+	Button,
 } from '@wordpress/components';
 
 import { usePrevious } from '@wordpress/compose';
-import { TextControl, Button } from '@wordpress/components';
 
 function Edit( {
 	attributes,
