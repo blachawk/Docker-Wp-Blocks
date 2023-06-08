@@ -210,7 +210,7 @@ function Edit( {
 					value={ content }
 				/>
 
-				<div className="wp-block-mediagallery-item-media-links">
+				<div className={ `wp-block-mediagallery-item-media-links` }>
 					<ul>
 						{ mediaLinks.map( ( item, index ) => {
 							return (
@@ -245,7 +245,9 @@ function Edit( {
 						} ) }
 
 						{ isSelected && (
-							<li className="wp-block-mediagallery-item-media-icons">
+							<li
+								className={ `wp-block-mediagallery-item-media-icons` }
+							>
 								<Tooltip
 									text={ __(
 										'Add Media Link',
@@ -273,7 +275,7 @@ function Edit( {
 					>
 						<TextControl label={ __( 'Icon', 'mg-block-item' ) } />
 						<TextControl label={ __( 'URL', 'mg-block-item' ) } />
-						<Button>
+						<Button isDestructive>
 							{ __( 'Remove link', 'mg-block-item' ) }
 						</Button>
 					</div>

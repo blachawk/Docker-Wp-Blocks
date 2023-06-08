@@ -49,8 +49,8 @@ export default function Save( { attributes } ) {
 							return (
 								<li key={ index }>
 									<a
-										data-icon={ item.icon }
 										href={ item.link }
+										data-icon={ item.icon }
 									>
 										<Icon icon={ item.icon } />
 									</a>
