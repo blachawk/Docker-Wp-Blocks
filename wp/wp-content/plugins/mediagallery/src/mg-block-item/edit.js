@@ -121,6 +121,16 @@ function Edit( {
 		setAttributes( { mediaLinks: mediaLinksCopy } );
 	};
 
+	const removeMediaItem = () => {
+		setAttributes( {
+			mediaLinks: [
+				...mediaLinks.slice( 0, selectedLink ),
+				...mediaLinks.slice( selectedLink + 1 ),
+			],
+		} );
+		setSelectedLink();
+	};
+
 	//focusing on next input after modifying image
 	useEffect( () => {
 		titleRef.current.focus();
@@ -293,7 +303,7 @@ function Edit( {
 								updateMediaItem( 'link', link );
 							} }
 						/>
-						<Button isDestructive>
+						<Button isDestructive onClick={ removeMediaItem }>
 							{ __( 'Remove link', 'mg-block-item' ) }
 						</Button>
 					</div>
