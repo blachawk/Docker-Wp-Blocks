@@ -115,6 +115,12 @@ function Edit( {
 		setSelectedLink( mediaLinks.length );
 	};
 
+	const updateMediaItem = ( type, value ) => {
+		const mediaLinksCopy = [ ...mediaLinks ];
+		mediaLinksCopy[ selectedLink ][ type ] = value;
+		setAttributes( { mediaLinks: mediaLinksCopy } );
+	};
+
 	//focusing on next input after modifying image
 	useEffect( () => {
 		titleRef.current.focus();
@@ -273,8 +279,20 @@ function Edit( {
 					<div
 						className={ `wp-block-mediagallery-item-media-link-form` }
 					>
-						<TextControl label={ __( 'Icon', 'mg-block-item' ) } />
-						<TextControl label={ __( 'URL', 'mg-block-item' ) } />
+						<TextControl
+							label={ __( 'Icon', 'mg-block-item' ) }
+							value={ mediaLinks[ selectedLink ].icon }
+							onChange={ ( icon ) => {
+								updateMediaItem( 'icon', icon );
+							} }
+						/>
+						<TextControl
+							label={ __( 'URL', 'mg-block-item' ) }
+							value={ mediaLinks[ selectedLink ].link }
+							onChange={ ( link ) => {
+								updateMediaItem( 'link', link );
+							} }
+						/>
 						<Button isDestructive>
 							{ __( 'Remove link', 'mg-block-item' ) }
 						</Button>

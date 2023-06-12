@@ -47,11 +47,8 @@ export default function Save( { attributes } ) {
 					<ul>
 						{ mediaLinks.map( ( item, index ) => {
 							return (
-								<li key={ index }>
-									<a
-										href={ item.link }
-										data-icon={ item.icon }
-									>
+								<li key={ index } data-icon={ item.icon }>
+									<a href={ item.link }>
 										<Icon icon={ item.icon } />
 									</a>
 								</li>
