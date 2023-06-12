@@ -1,4 +1,7 @@
 
+
+@import './_scss-variables';
+
 /* COLUMN DECOR */
 .wp-block-create-block-mediagallery {
 
@@ -97,4 +100,152 @@
             }
         }
     }
+
+     //VIDEO GALLERY POP-UP WINDOW FOR EACH ITEM
+     .video-pop-up-overlay {
+        height: 100%;
+        position: fixed;
+        z-index: 4;
+        top: 0;
+        margin: 0;
+        text-align: center;
+        color: $c-white;
+        background: rgba(0, 0, 0, 0.3);
+        transition: 1.5s;
+
+        &.open {
+
+          margin: 0 auto;
+
+          .inner-wrap {
+            margin: 0 auto;
+          }
+
+          .nav {
+            margin: 0 auto;
+
+            //THE OVERLAY CLOSE X (FONT AWESOME)
+
+            .lnk-close-window {
+              padding: 0.5rem;
+              font-size: 1.5rem;
+              transition: 0.3s;
+              cursor: pointer;
+
+              &:hover {
+                color: $c-bronze;
+              }
+
+              &:active {
+                color: $c-wheat;
+              }
+            }
+          }
+
+          //FADE IN VIDEO POP OVERLAY WHEN IT OPENS
+
+          animation: animate-overlay linear 0.3s 1 normal forwards;
+          animation-timing-function: cubic-bezier(1, .02, .66, .82);
+
+          @keyframes animate-overlay {
+            from {
+              width: 25%;
+              opacity: 0;
+              background: rgba(0, 0, 0, 0);
+            }
+
+            to {
+              width: 100%;
+              opacity: 1;
+              background: rgba(0, 0, 0, 0.7);
+            }
+          }
+
+          .stream-insert {
+
+            //SETUP DEFAULT SETTINGS FOR THIS PRELOADER AREA
+
+            position: relative;
+            height: calc(100vh - 32px);
+            margin: 0 auto;
+
+            //THE SPINNER PRELOADER
+
+            .spinner {
+              flex: 1;
+              width: 56px;
+              height: 56px;
+              border-radius: 50%;
+              border: 9px solid;
+              border-color: $c-white transparent;
+              opacity: 0.5;
+
+              position: absolute;
+              margin: auto;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+
+              animation: spinner-0tkp9a 0.8s infinite;
+            }
+
+            @keyframes spinner-0tkp9a {
+              to {
+                transform: rotate(.5turn);
+              }
+            }
+          }
+        }
+
+        @media (min-width: $s-667) {
+          &.open {
+            max-width: initial;
+
+            .inner-wrap {
+              width: 75%;
+            }
+          }
+        }
+
+        @media (max-width: $s-600) {
+          &.open {
+            max-width: 575px;
+          }
+        }
+
+        @media (max-width: $s-450) {
+          &.open {
+            max-width: 430px;
+
+            .inner-wrap {
+              margin: 0 auto;
+              width: 75%;
+            }
+          }
+        }
+
+        @media (max-width: $s-385) {
+          &.open {
+            max-width: initial;
+
+            .inner-wrap {
+              margin: 0;
+              width: 75%;
+            }
+          }
+        }
+
+        @media (max-width: $s-360) {
+          &.open {
+            max-width: 360px;
+
+            .inner-wrap {
+              margin: 0 auto;
+              width: 71%;
+            }
+          }
+        }
+      }
+
 }

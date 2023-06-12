@@ -42,6 +42,23 @@ add_action('wp_enqueue_scripts', '_bh_block_styles');
 add_action('admin_enqueue_scripts', '_bh_block_styles');
 
 
+function _bh_block_fonts()
+{
+	wp_enqueue_style(
+		'_bh-font-awesome-css',
+		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
+	);
+
+	wp_enqueue_script(
+		'_bh-font-awesome-js',
+		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/solid.min.js',
+		array(),
+		NULL,
+		true
+	);
+}
+add_action('wp_enqueue_scripts', '_bh_block_fonts');
+
 /**
 	* Registers the block using the metadata loaded from the `block.json` file.
 	* Behind the scenes, it registers also all assets so they can be enqueued
