@@ -13,6 +13,35 @@
 	* @package           blocks-media
 	*/
 
+
+/* Exit if accessed directly */
+if (!defined('ABSPATH'))
+	exit;
+
+/**
+	* lets get font-aweome wired up to the back-end and front-end
+	*/
+function _bh_block_styles()
+{
+	wp_enqueue_style(
+		'_bh-google-fonts-anton',
+		'https://fonts.googleapis.com/css2?family=Anton&display=swap',
+		array(),
+		'1.0'
+	);
+
+	wp_enqueue_style(
+		'_bh-google-fonts-mon',
+		'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap',
+		array(),
+		'1.0'
+	);
+
+}
+add_action('wp_enqueue_scripts', '_bh_block_styles');
+add_action('admin_enqueue_scripts', '_bh_block_styles');
+
+
 /**
 	* Registers the block using the metadata loaded from the `block.json` file.
 	* Behind the scenes, it registers also all assets so they can be enqueued

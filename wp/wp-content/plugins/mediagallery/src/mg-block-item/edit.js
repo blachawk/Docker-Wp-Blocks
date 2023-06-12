@@ -12,28 +12,12 @@ import {
 	Spinner,
 	withNotices,
 	ToolbarButton,
-	Icon,
 	Tooltip,
 	TextControl,
-	Button,
 } from '@wordpress/components';
 
-import { usePrevious } from '@wordpress/compose';
-
-function Edit( {
-	attributes,
-	setAttributes,
-	noticeOperations,
-	noticeUI,
-	isSelected,
-} ) {
-	const { name, title, content, url, alt, id, mediaLinks } = attributes;
-
-	//clear state of previous selected media link icon
-	const prevIsSelected = usePrevious( isSelected );
-
-	//state for clickable media link icons
-	const [ selectedLink, setSelectedLink ] = useState();
+function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
+	const { name, title, content, url, streamLink, alt, id } = attributes;
 
 	//focusing on next input after modifying image
 	const titleRef = useRef();
@@ -53,10 +37,18 @@ function Edit( {
 		setAttributes( { content: newContent } );
 	};
 
-	//if the user uploads the media thumbnail
+	const onChangeStreamLink = ( newStreamLink ) => {
+		setAttributes( { streamLink: newStreamLink } );
+	};
+
+	//if the user uploads the media thumbnail image
 	const onSelectImage = ( newImage ) => {
 		if ( ! newImage || ! newImage.url ) {
-			setAttributes( { url: undefined, id: undefined, alt: '' } );
+			setAttributes( {
+				url: undefined,
+				id: undefined,
+				alt: '',
+			} );
 			return;
 		}
 		setAttributes( {
@@ -66,7 +58,7 @@ function Edit( {
 		} );
 	};
 
-	//if the user puts in a URL for the media thumbnail
+	//if the user puts in a URL for the media thumbnail image
 	const onSelectImageURL = ( newImageURL ) => {
 		setAttributes( {
 			url: newImageURL,
@@ -108,40 +100,10 @@ function Edit( {
 		} );
 	};
 
-	const addNewMediaItem = () => {
-		setAttributes( {
-			mediaLinks: [ ...mediaLinks, { icon: 'wordpress', link: '' } ],
-		} );
-		setSelectedLink( mediaLinks.length );
-	};
-
-	const updateMediaItem = ( type, value ) => {
-		const mediaLinksCopy = [ ...mediaLinks ];
-		mediaLinksCopy[ selectedLink ][ type ] = value;
-		setAttributes( { mediaLinks: mediaLinksCopy } );
-	};
-
-	const removeMediaItem = () => {
-		setAttributes( {
-			mediaLinks: [
-				...mediaLinks.slice( 0, selectedLink ),
-				...mediaLinks.slice( selectedLink + 1 ),
-			],
-		} );
-		setSelectedLink();
-	};
-
 	//focusing on next input after modifying image
 	useEffect( () => {
 		titleRef.current.focus();
 	}, [ url ] );
-
-	//clear state of previous selected media link icon
-	useEffect( () => {
-		if ( prevIsSelected && ! isSelected ) {
-			setSelectedLink();
-		}
-	}, [ isSelected, prevIsSelected ] );
 
 	return (
 		<>
@@ -214,7 +176,13 @@ function Edit( {
 					className="vid-title"
 					onChange={ onChangeTitle }
 					value={ title }
-					allowedFormats={ [ 'core/bold', 'core/link' ] }
+					allowedFormats={ [
+						'core/bold',
+						'core/italic',
+						'core/image',
+						'core/text-color',
+						'core/link',
+					] }
 				/>
 
 				<RichText
@@ -225,89 +193,27 @@ function Edit( {
 					onChange={ onChangeContent }
 					value={ content }
 				/>
+				{ /*
+				<RichText
+					placeholder={ __( 'Media Stream Link', 'mg-block-item' ) }
+					tagName="div"
+					multiline="false"
+					allowedFormats={ [] }
+					withoutInteractiveFormatting
+					className="vid-stream-link"
+					onChange={ onChangeStreamLink }
+					value={ streamLink }
+				/> */ }
 
-				<div className={ `wp-block-mediagallery-item-media-links` }>
-					<ul>
-						{ mediaLinks.map( ( item, index ) => {
-							return (
-								<li
-									key={ index }
-									className={
-										selectedLink === index
-											? `is-selected m${ index }`
-											: null
-									}
-								>
-									<Tooltip
-										text={ __(
-											'Edit Media Link',
-											'mg-block-item'
-										) }
-									>
-										<button
-											aria-label={ __(
-												'Edit Media Link',
-												'mg-block-item'
-											) }
-											onClick={ () =>
-												setSelectedLink( index )
-											}
-										>
-											<Icon icon={ item.icon } />
-										</button>
-									</Tooltip>
-								</li>
-							);
-						} ) }
-
-						{ isSelected && (
-							<li
-								className={ `wp-block-mediagallery-item-media-icons` }
-							>
-								<Tooltip
-									text={ __(
-										'Add Media Link',
-										'mg-block-item'
-									) }
-								>
-									<button
-										aria-label={ __(
-											'Add Media Link',
-											'mg-block-item'
-										) }
-										onClick={ addNewMediaItem }
-									>
-										<Icon icon="plus" />
-									</button>
-								</Tooltip>
-							</li>
-						) }
-					</ul>
+				<div className={ `wp-block-mediagallery-stream-link-form` }>
+					<TextControl
+						label={ __( 'Media Stream Link', 'mg-block-item' ) }
+						value={ streamLink }
+						className="vid-stream-link"
+						onChange={ onChangeStreamLink }
+						help={ `insert the cloud flair link here` }
+					/>
 				</div>
-
-				{ selectedLink !== undefined && (
-					<div
-						className={ `wp-block-mediagallery-item-media-link-form` }
-					>
-						<TextControl
-							label={ __( 'Icon', 'mg-block-item' ) }
-							value={ mediaLinks[ selectedLink ].icon }
-							onChange={ ( icon ) => {
-								updateMediaItem( 'icon', icon );
-							} }
-						/>
-						<TextControl
-							label={ __( 'URL', 'mg-block-item' ) }
-							value={ mediaLinks[ selectedLink ].link }
-							onChange={ ( link ) => {
-								updateMediaItem( 'link', link );
-							} }
-						/>
-						<Button isDestructive onClick={ removeMediaItem }>
-							{ __( 'Remove link', 'mg-block-item' ) }
-						</Button>
-					</div>
-				) }
 			</div>
 		</>
 	);

@@ -59,7 +59,7 @@
             .vid-name {
                 text-align: center;
                 color: #000;
-                font-family: Anton, sans-serif;
+                font-family: "Anton", sans-serif;
                 font-size: 1.5rem;
                 font-weight: 400;
                 text-transform: uppercase;
@@ -70,20 +70,28 @@
 
             .vid-title {
                 text-align: center;
-                color: #000;
-                font-family: Montserrat, sans-serif;
+                font-family: "Montserrat", sans-serif;
                 font-size: 0.8rem;
                 min-height: 2rem;
             }
 
             .vid-content {
                 text-align: center;
+                font-family: "Montserrat", sans-serif;
+                font-size: 0.8rem;
+                min-height: 2rem;
+            }
+
+            .vid-stream-link {
+                text-align: center;
                 color: #000;
                 font-family: Montserrat, sans-serif;
                 font-size: 0.8rem;
+                min-height: 2rem;
 
-                padding: 0 0 1rem;
-                min-height: 4rem;
+                display:flex;
+                align-items:center;
+                justify-content: center;
             }
 
             .wp-block-mediagallery-item-media-links {
