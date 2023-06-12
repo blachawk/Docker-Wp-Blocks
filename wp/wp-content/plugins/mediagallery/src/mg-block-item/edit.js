@@ -163,6 +163,9 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 					ref={ titleRef }
 					placeholder={ __( 'Media Name', 'mg-block-item' ) }
 					tagName="h2"
+					multiline={ false } // Not required, this is the default value.
+					onReplace={ () => {} }
+					onSplit={ () => {} }
 					className="vid-name"
 					onChange={ onChangeName }
 					value={ name }
@@ -172,17 +175,13 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 				<RichText
 					placeholder={ __( 'Media Title', 'mg-block-item' ) }
 					tagName="div"
-					multiline="p"
+					multiline={ false } // Not required, this is the default value.
+					onReplace={ () => {} }
+					onSplit={ () => {} }
 					className="vid-title"
 					onChange={ onChangeTitle }
 					value={ title }
-					allowedFormats={ [
-						'core/bold',
-						'core/italic',
-						'core/image',
-						'core/text-color',
-						'core/link',
-					] }
+					allowedFormats={ [ 'core/bold' ] }
 				/>
 
 				<RichText
@@ -193,25 +192,16 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 					onChange={ onChangeContent }
 					value={ content }
 				/>
-				{ /*
-				<RichText
-					placeholder={ __( 'Media Stream Link', 'mg-block-item' ) }
-					tagName="div"
-					multiline="false"
-					allowedFormats={ [] }
-					withoutInteractiveFormatting
-					className="vid-stream-link"
-					onChange={ onChangeStreamLink }
-					value={ streamLink }
-				/> */ }
-
 				<div className={ `wp-block-mediagallery-stream-link-form` }>
 					<TextControl
-						label={ __( 'Media Stream Link', 'mg-block-item' ) }
+						label={ __(
+							'Insert Media Stream Link',
+							'mg-block-item'
+						) }
 						value={ streamLink }
 						className="vid-stream-link"
 						onChange={ onChangeStreamLink }
-						help={ `insert the cloud flair link here` }
+						help={ `` }
 					/>
 				</div>
 			</div>
