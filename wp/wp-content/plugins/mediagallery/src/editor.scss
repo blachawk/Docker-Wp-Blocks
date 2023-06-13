@@ -18,6 +18,8 @@
         /* stylelint-disable-next-line CssSyntaxError */
         &.has-#{$i}-columns {
 
+            max-width:none;
+
             [data-type="mediagallery/item"] {
                 width: calc(100% / #{$i});
             }
