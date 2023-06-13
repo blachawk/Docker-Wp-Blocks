@@ -84,7 +84,7 @@
                 text-align: center;
                 font-family: "Montserrat", sans-serif;
                 font-size: 0.8rem;
-                min-height: 2rem;
+                min-height: 9rem;
             }
 
             .vid-stream-link {
@@ -156,7 +156,7 @@
 
     /*CENTER THE BLOCKS FOR WIDER SCREENS*/
     .block-editor-block-list__block.wp-block {  /* stylelint-disable-line */
-        margin: 0 auto;
+        margin: 0 auto 1rem;
     }
 }
      /* stylelint-disable */
