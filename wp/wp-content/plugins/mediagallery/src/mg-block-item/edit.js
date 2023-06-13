@@ -109,7 +109,10 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 		<>
 			{ url && (
 				<BlockControls group="inline">
-					<div className={ `mg-block-item-img-replacer` }>
+					<div
+						className={ `mg-block-item-img-replacer` }
+						data-title="Replace Image"
+					>
 						<MediaReplaceFlow
 							name={ __( 'Replace Image', 'mg-block-item' ) }
 							onSelect={ onSelectImage }

@@ -1,14 +1,14 @@
 //OFFICIAL GOOGLE FONTS FAMILIES
 
-$font-fam-mon: 'Montserrat',
-sans-serif;
-$font-fam-anton: 'Anton',
-sans-serif;
-$ff-anton: 'Anton',
-sans-serif;
-$font-fam-dm: 'DM Serif Display',
-serif;
-$font-fam-serif: Georgia;
+$font-fam-mon: "Montserrat",
+    sans-serif;
+$font-fam-anton: "Anton",
+    sans-serif;
+$ff-anton: "Anton",
+    sans-serif;
+$font-fam-dm: "DM Serif Display",
+    serif;
+$font-fam-serif: georgia;
 
 //OFFICIAL COLORS
 //https://www.rapidtables.com/web/color/RGB_Color.html
@@ -29,8 +29,8 @@ $c-greenhand: #5e683c;
 $c-risingsun: #df591d;
 $c-rust: #b25a3d;
 $c-sand: #d7d4c2;
-$c-skyblue: #3EA9DA;
-$c-sea: #69AA95;
+$c-skyblue: #3ea9da;
+$c-sea: #69aa95;
 $c-sprout: #b3baa0;
 $c-steel: #1a839a;
 $c-wheat: #f1dcaa;
@@ -67,244 +67,240 @@ $s-3500: 3500px;
 $mpath: "html ";
 #{$mpath} {
 
-  //FONT FAMILIES
+    //FONT FAMILIES
 
-  .font-fam-mon {
-    font-family: $font-fam-mon;
-  }
-
-  .font-fam-anton {
-    font-family: $font-fam-anton !important;
-  }
-
-  .font-fam-dm {
-    font-family: $font-fam-dm;
-  }
-
-  //FONT SIZES
-
-  $fontsizes: ('f-sm': $f-sm,
-    'f-norm': $f-norm,
-    'f-m': $f-m,
-    'f-lg': $f-lg,
-    'f-xlg': $f-xlg,
-    'f-xxlg': $f-xxlg,
-  );
-
-  @each $name,
-  $val in $fontsizes {
-    .#{$name} {
-      font-size: $val !important;
+    .font-fam-mon {
+        font-family: $font-fam-mon;
     }
-  }
 
-  //FONT WEIGHTS
+    .font-fam-anton {
+        font-family: $font-fam-anton !important;
+    }
 
-  $fontweights: (f-bold: bold,
+    .font-fam-dm {
+        font-family: $font-fam-dm;
+    }
+
+    //FONT SIZES
+
+    $fontsizes: ("f-sm": $f-sm,
+    "f-norm": $f-norm,
+    "f-m": $f-m,
+    "f-lg": $f-lg,
+    "f-xlg": $f-xlg,
+    "f-xxlg": $f-xxlg,
+);
+
+    @each $name,
+        $val in $fontsizes {
+        .#{$name} {
+            font-size: $val !important;
+        }
+    }
+
+    //FONT WEIGHTS
+
+    $fontweights: (f-bold: bold,
     f-300: 300,
     f-400: 400,
     f-600: 600,
     f-700: 700);
 
-  @each $name,
-  $val in $fontweights {
-    .#{$name} {
-      font-weight: $val;
-    }
-  }
-
-  //COLOR OPTIONS
-
-  $fontcolors: ('black25':$c-blackn25,
-    'black75':$c-blackn75,
-    'black':$c-black,
-    'white':$c-white,
-    'green':$c-green,
-    'red':$c-red,
-    'yellow':$c-yellow,
-    'blue':$c-blue,
-    'bronze':$c-bronze,
-    'corduroy':$c-corduroy,
-    'corn':$c-corn,
-    'greenhand':$c-greenhand,
-    'risingsun':$c-risingsun,
-    'rust':$c-rust,
-    'sand':$c-sand,
-    'skyblue':$c-skyblue,
-    'sea':$c-sea,
-    'sprout':$c-sprout,
-    'steel':$c-steel,
-    'wheat':$c-wheat);
-
-  @each $name,
-  $val in $fontcolors {
-
-    .txt-#{$name} {
-      color: $val;
+    @each $name,
+        $val in $fontweights {
+        .#{$name} {
+            font-weight: $val;
+        }
     }
 
-    .bg-#{$name} {
-      background-color: $val;
-    }
+    //COLOR OPTIONS
 
-    .border-#{$name} {
-      border: solid 0.125em $val;
-    }
+    $fontcolors: ("black25":$c-blackn25,
+    "black75":$c-blackn75,
+    "black":$c-black,
+    "white":$c-white,
+    "green":$c-green,
+    "red":$c-red,
+    "yellow":$c-yellow,
+    "blue":$c-blue,
+    "bronze":$c-bronze,
+    "corduroy":$c-corduroy,
+    "corn":$c-corn,
+    "greenhand":$c-greenhand,
+    "risingsun":$c-risingsun,
+    "rust":$c-rust,
+    "sand":$c-sand,
+    "skyblue":$c-skyblue,
+    "sea":$c-sea,
+    "sprout":$c-sprout,
+    "steel":$c-steel,
+    "wheat":$c-wheat);
 
-    .border-left-#{$name} {
-      border-left: solid 0.125rem $val;
-    }
+    @each $name,
+        $val in $fontcolors {
 
-    .border-right-#{$name} {
-      border-right: solid 0.125rem $val;
-    }
-
-    .border-top-#{$name} {
-      border-top: solid 0.125rem $val;
-    }
-
-    .border-bottom-#{$name} {
-      border-bottom: solid 0.125rem $val;
-
-      &.border-gap {
-        position: relative;
-        height: 17px;
-        border: 2px solid $val;
-        border-bottom: none;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-
-        &:before,
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          height: 2px;
-          background-color: $val;
+        .txt-#{$name} {
+            color: $val;
         }
 
-        &:before {
-          left: 0;
-          width: 40%;
-        }
-
-        &:after {
-          right: 0;
-          width: 40%;
-        }
-
-        span {
-          position: absolute;
-          text-align: center;
-          left: 0;
-          right: 0;
-          display: block;
-          height: 50px;
-          border: solid 2px $val;
-          border-bottom: none;
-          border-top: none;
-          border-left: none;
-          border-right: none;
-
-          &:before,
-          &:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            height: 2px;
+        .bg-#{$name} {
             background-color: $val;
-          }
+        }
 
-          &:before {
-            left: 0;
-            width: 39%;
-          }
+        .border-#{$name} {
+            border: solid 0.125em $val;
+        }
 
-          &:after {
-            right: 0;
-            width: 39%;
-          }
+        .border-left-#{$name} {
+            border-left: solid 0.125rem $val;
+        }
 
-          span {
-            position: absolute;
-            bottom: -39px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            border: none;
+        .border-right-#{$name} {
+            border-right: solid 0.125rem $val;
+        }
 
-            line-height: 0;
-            font-size: 0;
-            color: transparent;
+        .border-top-#{$name} {
+            border-top: solid 0.125rem $val;
+        }
 
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center 0;
+        .border-bottom-#{$name} {
+            border-bottom: solid 0.125rem $val;
 
-            &:before,
-            &:after {
-              content: '';
-              position: absolute;
-              bottom: 0;
-              height: 2px;
-              background-color: transparent;
+            &.border-gap {
+                position: relative;
+                height: 17px;
+                border: 2px solid $val;
+                border-bottom: none;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    height: 2px;
+                    background-color: $val;
+                }
+
+                &::before {
+                    left: 0;
+                    width: 40%;
+                }
+
+                &::after {
+                    right: 0;
+                    width: 40%;
+                }
+
+                span {
+                    position: absolute;
+                    text-align: center;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    height: 50px;
+                    border: solid 2px $val;
+                    border-bottom: none;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        height: 2px;
+                        background-color: $val;
+                    }
+
+                    &::before {
+                        left: 0;
+                        width: 39%;
+                    }
+
+                    &::after {
+                        right: 0;
+                        width: 39%;
+                    }
+
+                    span {
+                        position: absolute;
+                        bottom: -39px;
+                        height: 100px;
+                        display: flex;
+                        justify-content: center;
+                        border: none;
+
+                        line-height: 0;
+                        font-size: 0;
+                        color: transparent;
+
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center 0;
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            height: 2px;
+                            background-color: transparent;
+                        }
+                    }
+                }
             }
-          }
         }
-      }
+
+        .btn {
+            &.btn-#{$name} {
+                display: block;
+                width: auto; //if i need to be specific, then add a class for it with the following length - 18.75rem;
+                padding: 0.813rem;
+                letter-spacing: 0.125rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                text-align: center;
+                font-family: $font-fam-mon;
+                font-weight: 800;
+                font-size: 1.1rem;
+                background-color: transparent;
+                border: solid 0.125rem $val;
+
+                @if #{$name}=="skyblue" {
+                    color: $c-black;
+                } @else if #{$name}=="steel" {
+                    color: $c-black;
+                } @else if #{$name}=="yellow" {
+                    color: $c-white;
+                }
+            }
+        }
+
+        .qna-#{$name} {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 0.3rem;
+            -webkit-border-radius: 40px;
+            -moz-border-radius: 40px;
+            border-radius: 40px;
+            border: solid 1px $val;
+            background: $c-white;
+            margin-top: -0.5rem;
+            text-align: center;
+            color: $val;
+            text-decoration: none;
+            line-height: 1.3;
+        }
     }
 
-    .btn {
-      &.btn-#{$name} {
-        display: block;
-        width: auto; //if i need to be specific, then add a class for it with the following length - 18.75rem;
-        padding: 0.813rem;
-        letter-spacing: 0.125rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        text-align: center;
-        font-family: $font-fam-mon;
-        font-weight: 800;
-        font-size: 1.1rem;
-        background-color: transparent;
-        border: solid 0.125rem $val;
+    //AVAILABLE MARGIN AND PADDING OPTIONS
 
-        @if #{$name}=="skyblue" {
-          color: $c-black;
-        }
-
-        @else if #{$name}=="steel" {
-          color: $c-black;
-        }
-
-        @else if #{$name}=="yellow" {
-          color: $c-white;
-        }
-      }
-    }
-
-    .qna-#{$name} {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      margin: 0 0.3rem;
-      -webkit-border-radius: 40px;
-      -moz-border-radius: 40px;
-      border-radius: 40px;
-      border: solid 1px $val;
-      background: $c-white;
-      margin-top: -0.5rem;
-      text-align: center;
-      color: $val;
-      text-decoration: none;
-      line-height: 1.3;
-    }
-  }
-
-  //AVAILABLE MARGIN AND PADDING OPTIONS
-
-  $margspads: ((m-auto, margin, 0 auto),
+    $margspads: ((m-auto, margin, 0 auto),
     (m-x-sm, margin, 0 1rem),
     (m-y-sm, margin, 1rem 0),
     (m-y-md, margin, 3rem 0),
@@ -331,35 +327,36 @@ $mpath: "html ";
     (p-lt-lg, padding-left, 5rem),
     (p-lt-xlg, padding-left, 8rem));
 
-  @each $selector,
-  $prop,
+    @each $selector,
+        $prop,
   $value in $margspads {
-    .#{$selector} {
-      #{$prop}: $value;
+        .#{$selector} {
+            #{$prop}: $value;
+        }
     }
-  }
 
-  $mobilemargspads: ((mob-m-btm-lg, margin-bottom, 7rem),
+    $mobilemargspads: ((mob-m-btm-lg, margin-bottom, 7rem),
     (mob-p-x-sm, padding, 0 1rem),
     (mob-p-x-none, padding, 0));
 
-  @each $selector,
-  $prop,
+    @each $selector,
+        $prop,
   $value in $mobilemargspads {
-    @media (max-width: $s-700) {
-      .#{$selector} {
-        #{$prop}: $value;
-      }
+
+        @media (max-width: $s-700) {
+            .#{$selector} {
+                #{$prop}: $value;
+            }
+        }
     }
-  }
 
-  //AVAILABLE WIDTHS AND HEIGHTS
+    //AVAILABLE WIDTHS AND HEIGHTS
 
-  //https://sass-lang.com/documentation/values/maps
-  //http://sass.js.org/
-  //https://www.sitepoint.com/sass-maps-vs-nested-lists/
-  //https://www.w3schools.com/Css/css_syntax.asp
-  $widthsheights: ((wmax, width, 100%),
+    //https://sass-lang.com/documentation/values/maps
+    //http://sass.js.org/
+    //https://www.sitepoint.com/sass-maps-vs-nested-lists/
+    //https://www.w3schools.com/Css/css_syntax.asp
+    $widthsheights: ((wmax, width, 100%),
     (wmax-32, max-width, 32px),
     (wmax-40, max-width, 40px),
     (wmax-80, max-width, 80px),
@@ -377,107 +374,109 @@ $mpath: "html ";
     (wmax-1450, max-width, 1450px),
     (wmin-275, min-width, 275px),
     (w80, width, 80%)
-  );
+);
 
-  @each $selector,
-  $prop,
+    @each $selector,
+        $prop,
   $value in $widthsheights {
-    .#{$selector} {
-      #{$prop}: $value;
-    }
-  }
-
-  $mobileWidthsHeights: ((mob-wmax-lg, max-width, 13rem),
-  );
-
-  @each $selector,
-  $prop,
-  $value in $mobileWidthsHeights {
-    @media (max-width: $s-700) {
-      .#{$selector} {
-        #{$prop}: $value;
-      }
-    }
-  }
-
-  //AVAILABLE HORIZONTAL RULES
-
-
-  //GENERICS
-  .d-none {
-    display: none !important;
-  }
-
-  .d-block {
-    display: block;
-  }
-
-  .d-block-inline {
-    display: inline-block;
-  }
-
-  .visible {
-    visibility: visible;
-  }
-
-  .hidden {
-    visibility: hidden;
-  }
-
-  .op-08 {
-    opacity: 0.8;
-  }
-
-  .txt-center {
-    text-align: center;
-  }
-
-  .txt-right {
-    text-align: right;
-  }
-
-  .txt-dec-white {
-    text-decoration-color: $c-white;
-  }
-
-  .font-bold {
-    font-weight: bold;
-  }
-
-  .border-left-thin {
-    border-left: solid 0.1rem gainsboro;
-  }
-
-  .responsive {
-    width: 100%;
-    height: auto;
-  }
-
-  .list {
-    ul {
-      margin: 0 1rem;
-
-      li {
-        font-family: $font-fam-mon;
-        list-style-type: circle;
-        color: $c-steel;
-
-        p {
-          padding: 0;
-          margin: 0.5rem !important;
-          color: $c-blackn75;
-
-          a {
-            color: $c-skyblue;
-          }
+        .#{$selector} {
+            #{$prop}: $value;
         }
-      }
-
     }
-  }
 
-  //FONT AWESOME ICONS EXAMPLE!
-  // .fa-phone:before {
-  //   content: "\f095";
-  // }
+    $mobileWidthsHeights: ((mob-wmax-lg, max-width, 13rem),
+);
+
+    @each $selector,
+        $prop,
+  $value in $mobileWidthsHeights {
+
+        @media (max-width: $s-700) {
+            .#{$selector} {
+                #{$prop}: $value;
+            }
+        }
+    }
+
+    //AVAILABLE HORIZONTAL RULES
+
+
+    //GENERICS
+    .d-none {
+        display: none !important;
+    }
+
+    .d-block {
+        display: block;
+    }
+
+    .d-block-inline {
+        display: inline-block;
+    }
+
+    .visible {
+        visibility: visible;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .op-08 {
+        opacity: 0.8;
+    }
+
+    .txt-center {
+        text-align: center;
+    }
+
+    .txt-right {
+        text-align: right;
+    }
+
+    .txt-dec-white {
+        text-decoration-color: $c-white;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .border-left-thin {
+        border-left: solid 0.1rem gainsboro;
+    }
+
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
+
+    .list {
+
+        ul {
+            margin: 0 1rem;
+
+            li {
+                font-family: $font-fam-mon;
+                list-style-type: circle;
+                color: $c-steel;
+
+                p {
+                    padding: 0;
+                    margin: 0.5rem !important;
+                    color: $c-blackn75;
+
+                    a {
+                        color: $c-skyblue;
+                    }
+                }
+            }
+
+        }
+    }
+
+    //FONT AWESOME ICONS EXAMPLE!
+    // .fa-phone:before {
+    //   content: "\f095";
+    // }
 }

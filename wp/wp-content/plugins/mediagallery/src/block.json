@@ -6,14 +6,7 @@
 	"title": "Media Gallery",
 	"category": "text",
 	"description": "A collection of media assets to support a pop-up gallery",
-	"keywords": [
-		"ffa",
-		"agexplorer",
-		"media",
-		"video",
-		"gallery",
-		"item"
-	],
+	"keywords": [ "ffa", "agexplorer", "media", "video", "gallery", "item" ],
 	"supports": {
 		"html": false
 	},
