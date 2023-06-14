@@ -4,7 +4,7 @@
 	* Description:       A collection of media assets to support a pop-up gallery
 	* Requires at least: 5.9
 	* Requires PHP:      7.0
-	* Version:           0.1.0
+	* Version:           0.1.1
 	* Author:            blachawk
 	* License:           GPL-2.0-or-later
 	* License URI:       https://www.gnu.org/licenses/gpl-2.0.html
