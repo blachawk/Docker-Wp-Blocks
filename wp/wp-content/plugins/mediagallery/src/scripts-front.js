@@ -1,7 +1,7 @@
 ( function agex2023() {
 	//TEST CONNECTIONS
 	function mfoo() {
-		console.log( 'block plugin custom js connected to front-end' );
+		// console.log( 'block plugin custom js connected to front-end' );
 	}
 	mfoo();
 
@@ -12,7 +12,7 @@
 			'.wp-block-create-block-mediagallery'
 		);
 		if ( mlocation ) {
-			console.log( 'yes we ar in the right mlocation' );
+			// console.log( 'yes we ar in the right mlocation' );
 
 			//GET THE VIDEO GALLERY POP-UP OVERLAY LOCATION
 			const mOverlay = document.querySelector( '.video-pop-up-overlay' );
@@ -35,7 +35,7 @@
 					if ( mthis.classList.contains( 'pop' ) ) {
 						e.preventDefault();
 
-						console.log( 'i clicked on the image' );
+						// console.log( 'i clicked on the image' );
 
 						//CLONE THE IMG ELEMENT
 						const mclone = mthis.cloneNode( true );
@@ -53,7 +53,7 @@
 						const mURLParams =
 							mDataVidURL.match( /.*\/(.*)\/(.*)$/ );
 						//AND USE IT LIKE SO...
-						console.log( mURLParams[ 1 ] );
+						// console.log( mURLParams[ 1 ] );
 
 						//BUILD OUT THE CLOUDFLARE STREAM ELEMENT AND ITS REQUIRED SCRIPT TAG
 						const mStream = document.createElement( 'stream' );
@@ -121,17 +121,17 @@
 			}
 
 			//CHECK FOR CHANGES VIA MUTATION OBSERVER!
-			const observer = new MutationObserver( function (
-				mutationRecords
-			) {
+			/* global MutationObserver */
+
+			const observer = new MutationObserver( function () {
 				//GET THE SPINNER AND MODIFY IT
 				const mSpinner = document.querySelector( '.spinner' );
 				setTimeout( () => {
 					if ( mSpinner ) {
-						console.log( 'spinner exists' );
+						// console.log( 'spinner exists' );
 						mSpinner.remove();
 					} else {
-						console.log( 'spinner does not exist' );
+						// console.log( 'spinner does not exist' );
 					}
 				}, 1000 );
 			} );
