@@ -23,12 +23,11 @@ registerBlockType( 'mediagallery/item', {
 		name: {
 			type: 'string',
 			source: 'html',
-			selector: 'h2',
+			selector: '.vid-name',
 		},
 		title: {
 			type: 'string',
 			source: 'html',
-			multiline: 'p',
 			selector: '.vid-title',
 		},
 		content: {
