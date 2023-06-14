@@ -1,24 +1,18 @@
-@import './_scss-variables';
-
-
-.wp-block-mediagallery-item-media-link-form .components-text-control__input[type="text"] {
-    border: solid .125rem #1a839a;
-}
+@import "scss-variables";
 
 /* COLUMN DECOR */
 .wp-block-create-block-mediagallery {
     display: flex;
     flex-wrap: wrap;
 
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: -0.625rem;
+    margin-right: -0.625rem;
 
     @for $i from 1 through 6 {
 
-        /* stylelint-disable-next-line CssSyntaxError */
         &.has-#{$i}-columns {
 
-            max-width:none;
+            max-width: none;
 
             [data-type="mediagallery/item"] {
                 width: calc(100% / #{$i});
@@ -29,12 +23,12 @@
     [data-type="mediagallery/item"] {
         max-width: none;
         min-width: 285px;
-        margin: 10px auto;
+        margin: 0.625rem auto;
 
 
         > [data-type="mediagallery/item"] {
 
-            margin: 10px 0;
+            margin: 0.625rem 0;
 
             .wp-block-mediagallery-item-img {
                 position: relative;
@@ -63,39 +57,39 @@
 
             .vid-name {
                 text-align: center;
-                color: #000;
-                font-family: "Anton", sans-serif;
+                color: $c-black;
+                font-family: $font-fam-anton;
                 font-size: 1.5rem;
                 font-weight: 400;
                 text-transform: uppercase;
-                letter-spacing: 0.04em;
+                letter-spacing: 0.04rem;
 
                 margin: 0 0 1rem;
             }
 
             .vid-title {
                 text-align: center;
-                font-family: "Montserrat", sans-serif;
+                font-family: $font-fam-mon;
                 font-size: 0.8rem;
                 min-height: 2rem;
             }
 
             .vid-content {
                 text-align: center;
-                font-family: "Montserrat", sans-serif;
+                font-family: $font-fam-mon;
                 font-size: 0.8rem;
                 min-height: 9rem;
             }
 
             .vid-stream-link {
                 text-align: center;
-                color: #000;
-                font-family: Montserrat, sans-serif;
+                color: $c-black;
+                font-family: $font-fam-mon;
                 font-size: 0.8rem;
                 min-height: 2rem;
 
-                display:flex;
-                align-items:center;
+                display: flex;
+                align-items: center;
                 justify-content: center;
             }
 
@@ -104,20 +98,20 @@
                 ul {
                     list-style: none;
                     padding: 0;
-                    margin: 15px -5px 0;
+                    margin: 0.938rem -0.313rem 0;
                     text-align: center;
 
                     li {
                         display: inline-block;
 
                         span.dashicon {
-                            color: #6a5acd;
+                            color: $c-steel;
                             font-size: 1.3rem;
                         }
 
 
                         &.is-selected {
-                            outline: 2px solid rgb(208, 40, 227);
+                            outline: 2px solid $c-blue;
                         }
 
                         button {
@@ -129,7 +123,7 @@
                         &.wp-block-mediagallery-item-media-icons {
 
                             button {
-                                outline: 1px dashed;
+                                outline: 0.063rem dashed;
 
                                 .dashicons-plus {
 
@@ -142,14 +136,7 @@
                             }
                         }
                     }
-
                 }
-            }
-
-
-            .wp-block-mediagallery-item-media-link-form {
-
-                /*look for a nice form styling process here */
             }
         }
     }
@@ -169,13 +156,13 @@
         &:hover:after {
         content: attr(data-title);
         position: absolute;
-        right: -40px;
-        top: 52px;
+        right: -2.5rem;
+        top: 3.25rem;
         width:6.063rem;
 
-        padding: 12px 10px;
-        background: #000;
-        color:#fff;
+        padding: 0.75rem 0.625rem;
+        background: $c-black;
+        color: $c-white;
         font-size: 0.75rem;
         border: none;
         }
@@ -186,12 +173,12 @@
             &::after {
                 font-family: dashicons;
                 content: "\f515";
-                color: #6a5acd;
+                color: $c-steel;
                 -webkit-font-smoothing: antialiased;
                 font-size: 1.25rem;
                 position: relative;
                 top: 0.8rem;
-                height: 50px;
+                height: 3.125rem;
             }
         }
     }
@@ -205,12 +192,12 @@
             &::after {
                 font-family: dashicons;
                 content: "\f182";
-                color: #6a5acd;
+                color: $c-steel;
                 -webkit-font-smoothing: antialiased;
                 font-size: 1.25rem;
                 position: relative;
                 top: 0.8rem;
-                height: 50px;
+                height: 3.125rem;
             }
         }
     }

@@ -1,0 +1,188 @@
+//FLEXBOX GRID SYSTEM
+//A CUSTOM LIGHT FLEXBOX GRID SYSTEM
+
+.flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    //justify-content: center;
+
+    &.flex-full {
+        flex-basis: 100%;
+    }
+
+    &.dir-column {
+        flex-direction: column;
+    }
+
+    &.dir-row {
+        flex-direction: row;
+    }
+
+    &.dir-row-rev {
+        flex-direction: row-reverse;
+    }
+
+    &.ai-content-start {
+        align-content: flex-start;
+    }
+
+    &.ai-content-center {
+        align-content: center;
+    }
+
+    &.ai-content-end {
+        align-content: flex-end;
+    }
+
+
+    //the grid system
+    .row {
+        display: flex;
+        flex-flow: row wrap;
+        flex: 1 1 100%; //Three values for flex: flex-grow | flex-shrink | flex-basis
+
+        &.dir-column {
+            flex-direction: column;
+        }
+
+        //options for row alignment
+        &.jc-start {
+            justify-content: flex-start;
+        }
+
+        &.jc-end {
+            justify-content: flex-end;
+        }
+
+        &.jc-center {
+            justify-content: center;
+        }
+
+        &.jc-even {
+            justify-content: space-evenly;
+        }
+
+        &.jc-between {
+            justify-content: space-between;
+        }
+
+        &.jc-around {
+            justify-content: space-around;
+        }
+
+        &.ai-center {
+            align-items: center;
+        }
+
+        &.ai-bottom {
+            align-items: flex-end;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 100%;
+
+            &.flex-basis {
+
+                &.basis-full {
+                    flex: 1 1 100%;
+                }
+
+                &.basis-half {
+                    flex: 1 1 50%;
+                }
+            }
+
+            &.flex-row {
+                flex-direction: row;
+            }
+
+            &.flex-col-rev {
+                flex-direction: column-reverse;
+            }
+
+            &.flex-wrap {
+                flex-wrap: wrap;
+            }
+
+            &.ai-center {
+                align-items: center;
+            }
+
+            &.ai-content-start {
+                align-content: flex-start;
+            }
+
+            &.ai-stretch {
+                align-items: stretch;
+            }
+
+            &.ai-start {
+                align-items: flex-start;
+            }
+
+            &.ai-end {
+                align-items: flex-end;
+            }
+
+            &.ai-baseline {
+                align-items: baseline;
+            }
+
+            &.jc-space-around {
+                justify-content: space-around;
+            }
+
+            &.jc-space-between {
+                justify-content: space-between;
+            }
+
+            &.jc-space-evenly {
+                justify-content: space-evenly;
+            }
+
+            &.jc-start {
+                justify-content: flex-start;
+            }
+
+            &.jc-center {
+                justify-content: center;
+            }
+
+            &.jc-end {
+                justify-content: flex-end;
+            }
+
+            .flex-item-block {
+                flex: 0 0 100%;
+            }
+
+            @for $i from 1 through 10 {
+                &.flex-#{10 * $i} {
+                    flex: #{10 * $i};
+                }
+            }
+        }
+    }
+
+    //child elements that need special attention
+    .ai-self-center {
+        align-self: center;
+    }
+
+    .jc-self-center {
+        justify-content: center;
+    }
+
+    //children can override parent justify-content by using margins
+    .jc-start-child {
+        margin-right: auto !important;
+    }
+
+    .jc-end-child {
+        margin-left: auto !important;
+    }
+}

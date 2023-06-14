@@ -31,7 +31,7 @@ import metadata from './block.json';
 registerBlockType( metadata.name, {
 	icon: {
 		src: 'media-interactive',
-		background: '#6a5acd',
+		background: '#1a839a',
 		foreground: '#fff',
 	},
 	/**

@@ -1,7 +1,7 @@
 
 
-@import "./_scss-variables";
-@import "./scss-flexbox";
+@import "scss-variables";
+@import "scss-flexbox";
 
 /* COLUMN DECOR */
 .wp-block-create-block-mediagallery {
@@ -12,41 +12,40 @@
     margin-left: -10px;
     margin-right: -10px;
 
+    /* stylelint-disable */
     @for $i from 1 through 6 {
         &.has-#{$i}-columns {
-
-            max-width:none;
 
             .wp-block-mediagallery-item {
 
                 @media (min-width: 500px) {
                     width: calc(100% / #{$i} - 20px);
                 }
-
             }
         }
     }
+    /* stylelint-enable */
 
     .wp-block-mediagallery-item {
         display: flex;
         flex-direction: column;
 
-        max-width: 900px;
-        min-width: 285px;
-        margin: 10px auto;
-
+        max-width: 56.25rem;
+        min-width: 17.813rem;
+        margin: 0.625rem auto;
 
         .vid-img {
-            background: transparent;
-            border: none;
             display: flex;
             justify-content: center;
+
+            background: transparent;
+            border: none;
         }
 
         .vid-name {
             text-align: center;
             color: #000;
-            font-family: Anton, sans-serif;
+            font-family: $font-fam-anton;
             font-size: 1.5rem;
             font-weight: 400;
             text-transform: uppercase;
@@ -57,26 +56,26 @@
 
         .vid-title {
             text-align: center;
-            color: #000;
-            font-family: Montserrat, sans-serif;
+            color: $c-black;
+            font-family: $font-fam-mon;
             font-size: 0.8rem;
             min-height: 2rem;
         }
 
         .vid-content {
             text-align: center;
-            font-family: Montserrat, sans-serif;
+            font-family: $font-fam-mon;
             font-size: 0.8rem;
             padding: 0 0 1rem;
 
             p {
-                font-size:0.8rem;
+                font-size: 0.8rem;
             }
         }
 
         .vid-stream-link {
             text-align: center;
-            font-family: Montserrat, sans-serif;
+            font-family: $font-fam-mon;
             font-size: 0.8rem;
             min-height: 2rem;
         }
@@ -87,14 +86,14 @@
             ul {
                 list-style: none;
                 padding: 0;
-                margin: 15px -5px 0;
+                margin: 0.938rem -0.313rem 0;
                 text-align: center;
 
                 li {
                     display: inline-block;
 
                     span.dashicon {
-                        color: #6a5acd;
+                        color: $c-steel;
                         font-size: 1.3rem;
                     }
 
@@ -108,7 +107,7 @@
         }
     }
 
-    //VIDEO GALLERY POP-UP WINDOW FOR EACH ITEM
+    /*VIDEO GALLERY POP-UP WINDOW FOR EACH ITEM*/
     .video-pop-up-overlay {
         position: fixed;
         z-index: 4;
@@ -116,6 +115,7 @@
         bottom: 0;
         left: 0;
         right: 0;
+
         color: $c-white;
         background: rgba(0, 0, 0, 0.3);
 
@@ -149,7 +149,8 @@
             }
 
             //FADE IN VIDEO POP OVERLAY WHEN IT OPENS
-            //FIREFOX DEV TOOLS GIVES US ANIMATION EXAMPLES WE CAN COPY, DIRECTLY FROM THE RULES TAB
+            //FIREFOX DEV TOOLS RULES TAB GIVES EXAMPLES
+
             animation: animate-overlay 0.4s 1 normal forwards;
             animation-timing-function: cubic-bezier(.19, 1, .22, 1);
 
@@ -220,14 +221,14 @@
         @media (max-width: $s-600) {
 
             &.open {
-                max-width: 575px;
+                max-width: 35.938rem;
             }
         }
 
         @media (max-width: $s-450) {
 
             &.open {
-                max-width: 430px;
+                max-width: 26.875rem;
 
                 .inner-wrap {
                     margin: 0 auto;
@@ -251,7 +252,7 @@
         @media (max-width: $s-360) {
 
             &.open {
-                max-width: 360px;
+                max-width: 22.5rem;
 
                 .inner-wrap {
                     margin: 0 auto;
@@ -260,5 +261,4 @@
             }
         }
     }
-
 }
