@@ -80,6 +80,7 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 				alt: '',
 			} );
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [] );
 
 	//memory optimization
@@ -90,6 +91,7 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 			revokeBlobURL( blobURL );
 			setBlobURL();
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ url ] );
 
 	const removeImage = () => {
